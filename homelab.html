@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nate N. — Homelab</title>
+  <meta name="description" content="Showcase of Nate N.'s homelab setup, projects, and infrastructure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: linear-gradient(120deg, #0f1115 0%, #1a2330 100%);
+      --fg: #e9eef3;
+      --muted: #a8b3bd;
+      --card: rgba(23,26,33,0.85);
+      --accent: #8fd3ff;
+      --shadow: 0 8px 32px rgba(0,0,0,.18);
+      --glass-blur: blur(12px);
+      --divider: linear-gradient(90deg, #8fd3ff 0%, #171a21 100%);
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.6 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .profile-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      background: #fff;
+      animation: borderPulse 2.5s infinite alternate;
+    }
+    @keyframes borderPulse {
+      0% { border-color: var(--accent); }
+      100% { border-color: #fff; }
+    }
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .muted { color: var(--muted); }
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 28px 24px;
+      margin: 36px 0;
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--glass-blur);
+      border: 1.5px solid rgba(255,255,255,.10);
+      transition: box-shadow .2s, border-color .2s;
+      position: relative;
+    }
+    .card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,.22);
+      border-color: var(--accent);
+    }
+    .divider {
+      height: 3px;
+      width: 100%;
+      background: var(--divider);
+      border-radius: 2px;
+      margin: 0 0 24px 0;
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .homelab-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width:700px) {
+      .homelab-list { grid-template-columns: 1fr; }
+    }
+    .lab-item {
+      background: rgba(143,211,255,0.08);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(143,211,255,0.10);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .lab-item:hover {
+      box-shadow: 0 6px 24px rgba(143,211,255,0.18);
+      transform: scale(1.03);
+    }
+    .lab-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+    .lab-desc {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .lab-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .lab-tag {
+      background: var(--accent);
+      color: #171a21;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    footer {
+      margin: 44px 0 0;
+      font-size: 15px;
+      text-align: center;
+      color: var(--muted);
+    }
+    .nav-link {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 12px;
+      transition: color .2s;
+    }
+    .nav-link:hover {
+      color: #fff;
+      background: var(--accent);
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="https://avatars.githubusercontent.com/u/1222127?v=4" alt="Nate N. profile photo" class="profile-img" loading="lazy">
+      <div>
+        <h1>Homelab Projects</h1>
+        <div class="muted">A showcase of my home infrastructure, automation, and IT experiments.</div>
+      </div>
+      <a href="index.html" class="nav-link">← Resume</a>
+    </header>
+    <section class="card">
+      <div class="divider"></div>
+      <h2>Current Setup</h2>
+      <div class="homelab-list">
+        <div class="lab-item">
+          <div class="lab-title">UniFi Network Stack</div>
+          <div class="lab-desc">Full UniFi Dream Machine Pro, switches, APs, VLANs, and guest network. Segmented for security and performance.</div>
+          <div class="lab-tags">
+            <span class="lab-tag">Networking</span>
+            <span class="lab-tag">VLAN</span>
+            <span class="lab-tag">WiFi 6</span>
+          </div>
+        </div>
+        <div class="lab-item">
+          <div class="lab-title">VMware ESXi Cluster</div>
+          <div class="lab-desc">Multiple VMs for Windows, Linux, and test environments. Used for automation, backups, and sandboxing.</div>
+          <div class="lab-tags">
+            <span class="lab-tag">Virtualization</span>
+            <span class="lab-tag">VMware</span>
+            <span class="lab-tag">Windows/Linux</span>
+          </div>
+        </div>
+        <div class="lab-item">
+          <div class="lab-title">Proxmox Backup & Automation</div>
+          <div class="lab-desc">Proxmox server for backup, snapshots, and running automation scripts. Integrates with Datto and Duplicati.</div>
+          <div class="lab-tags">
+            <span class="lab-tag">Proxmox</span>
+            <span class="lab-tag">Backup</span>
+            <span class="lab-tag">Automation</span>
+          </div>
+        </div>
+        <div class="lab-item">
+          <div class="lab-title">Self-hosted Services</div>
+          <div class="lab-desc">Running Nextcloud, Pi-hole, and Freshservice for internal use. All containerized and monitored.</div>
+          <div class="lab-tags">
+            <span class="lab-tag">Containers</span>
+            <span class="lab-tag">Monitoring</span>
+            <span class="lab-tag">Self-hosted</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="card">
+      <div class="divider"></div>
+      <h2>Recent Experiments</h2>
+      <div class="homelab-list">
+        <div class="lab-item">
+          <div class="lab-title">Automated Device Provisioning</div>
+          <div class="lab-desc">Using PowerShell and Bash scripts to automate device setup and compliance checks.</div>
+          <div class="lab-tags">
+            <span class="lab-tag">PowerShell</span>
+            <span class="lab-tag">Bash</span>
+            <span class="lab-tag">Automation</span>
+          </div>
+        </div>
+        <div class="lab-item">
+          <div class="lab-title">Network Segmentation Testing</div>
+          <div class="lab-desc">Testing VLANs and firewall rules for security and isolation between lab and guest networks.</div>
+          <div class="lab-tags">
+            <span class="lab-tag">Security</span>
+            <span class="lab-tag">Firewall</span>
+            <span class="lab-tag">VLAN</span>
+          </div>
+        </div>
+        <div class="lab-item">
+          <div class="lab-title">Cloud Backup Validation</div>
+          <div class="lab-desc">Verifying restore processes for Datto and Duplicati backups, both local and cloud.</div>
+          <div class="lab-tags">
+            <span class="lab-tag">Backup</span>
+            <span class="lab-tag">Cloud</span>
+            <span class="lab-tag">Restore</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      © <span id="y"></span> Nate N. Homelab. Hosted on Cloudflare Pages.
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

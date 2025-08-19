@@ -5,48 +5,284 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nate N. — Resume</title>
   <meta name="description" content="Resume of Nate N., IT Support Engineer with Tier II experience in MSP environments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0f1115;--fg:#e9eef3;--muted:#a8b3bd;--card:#171a21;--accent:#8fd3ff;}
-    @media (prefers-color-scheme: light){
-      :root{--bg:#f7f8fa;--fg:#14171a;--muted:#4b5563;--card:#ffffff;--accent:#0369a1;}
+    :root {
+      --bg: linear-gradient(120deg, #0f1115 0%, #1a2330 100%);
+      --fg: #e9eef3;
+      --muted: #a8b3bd;
+      --card: rgba(23,26,33,0.85);
+      --accent: #8fd3ff;
+      --shadow: 0 8px 32px rgba(0,0,0,.18);
+      --pill-hover: rgba(143,211,255,0.15);
+      --glass-blur: blur(12px);
+      --divider: linear-gradient(90deg, #8fd3ff 0%, #171a21 100%);
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
-    .wrap{max-width:900px;margin:0 auto;padding:32px 20px}
-    header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 20px;align-items:flex-start}
-    h1{margin:0 0 4px;font-size:32px;line-height:1.2}
-    .muted{color:var(--muted)}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px;margin:18px 0}
-    h2{margin:0 0 8px;font-size:20px}
-    h3{margin:0 0 6px;font-size:16px}
-    ul{margin:8px 0 0 18px}
-    li{margin:6px 0}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media (max-width:720px){.grid{grid-template-columns:1fr}}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;margin:4px 6px 0 0;font-size:14px}
-    footer{margin:26px 0 0;font-size:14px}
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: linear-gradient(120deg, #f7f8fa 0%, #e3f6ff 100%);
+        --fg: #14171a;
+        --muted: #4b5563;
+        --card: rgba(255,255,255,0.85);
+        --accent: #0369a1;
+        --shadow: 0 4px 24px rgba(3,105,161,.08);
+        --pill-hover: rgba(3,105,161,0.08);
+        --glass-blur: blur(8px);
+        --divider: linear-gradient(90deg, #0369a1 0%, #fff 100%);
+      }
+    }
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.6 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 20px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width:600px) {
+      header {
+        position: sticky;
+        top: 0;
+        background: var(--bg);
+        padding-bottom: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.04);
+      }
+    }
+    .profile-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 18px;
+      border: 3px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      background: #fff;
+      animation: borderPulse 2.5s infinite alternate;
+    }
+    @keyframes borderPulse {
+      0% { border-color: var(--accent); }
+      100% { border-color: #fff; }
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 38px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    @media (max-width:600px) { h1 { font-size: 26px; } }
+    .muted { color: var(--muted); }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 28px 24px;
+      margin: 36px 0;
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--glass-blur);
+      border: 1.5px solid rgba(255,255,255,.10);
+      transition: box-shadow .2s, border-color .2s;
+      position: relative;
+    }
+    .card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,.22);
+      border-color: var(--accent);
+    }
+    .divider {
+      height: 3px;
+      width: 100%;
+      background: var(--divider);
+      border-radius: 2px;
+      margin: 0 0 24px 0;
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+      font-weight: 600;
+    }
+    ul { margin: 12px 0 0 26px; }
+    li { margin: 10px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    @media (max-width:720px) { .grid { grid-template-columns: 1fr; } }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      margin: 8px 12px 0 0;
+      font-size: 16px;
+      background: transparent;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(143,211,255,0.08);
+    }
+    .pill:focus, .pill:hover {
+      background: var(--pill-hover);
+      outline: none;
+      transform: scale(1.09);
+      box-shadow: 0 4px 16px rgba(143,211,255,0.18);
+    }
+    .pill:active { transform: scale(.97); }
+    .pill-icon {
+      width: 18px;
+      height: 18px;
+      fill: var(--accent);
+      opacity: 0.8;
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      margin-top: 8px;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      position: relative;
+      z-index: 10;
+    }
+    .download-btn:hover {
+      background: #5bb6e6;
+      transform: scale(1.06);
+    }
+    @media (max-width:600px) {
+      .download-btn {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        margin: 0;
+        box-shadow: 0 6px 24px rgba(143,211,255,0.18);
+      }
+    }
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+    .email-link svg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      fill: var(--accent);
+    }
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 10px;
+      top: 10px;
+      width: auto;
+      height: auto;
+      padding: 8px 16px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      outline: 2px solid #fff;
+    }
+    .tech-stack-bar {
+      display: flex;
+      gap: 8px;
+      margin: 18px 0 0 0;
+      flex-wrap: wrap;
+    }
+    .tech-stack-item {
+      background: var(--accent);
+      color: #171a21;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 15px;
+      box-shadow: 0 2px 8px rgba(143,211,255,0.10);
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    footer {
+      margin: 44px 0 0;
+      font-size: 15px;
+      text-align: center;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="wrap">
     <header>
-      <div>
-        <h1>Nate N.</h1>
-        <div class="muted">IT Support Engineer (Tier II) • Austin, TX</div>
+      <div style="display:flex;align-items:center;gap:18px;">
+        <img src="https://avatars.githubusercontent.com/u/1222127?v=4" alt="Nate N. profile photo" class="profile-img" loading="lazy">
+        <div>
+          <h1>Nate N.</h1>
+          <div class="muted">IT Support Engineer (Tier II) • Austin, TX</div>
+        </div>
       </div>
       <div class="muted">
-        <div><a href="mailto:nnwaeze@gmail.com">nnwaeze@gmail.com</a></div>
+        <a href="mailto:nnwaeze@gmail.com" class="email-link" aria-label="Email Nate">
+          <svg viewBox="0 0 24 24"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.2l8 5.6 8-5.6V6.5a.5.5 0 0 0-.5-.5h-15Zm16 2.3-7.6 5.3a1.5 1.5 0 0 1-1.8 0L3.5 8.3V17.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V8.3Z"></path></svg>
+          nnwaeze@gmail.com
+        </a>
+        <button class="download-btn" onclick="window.print()" aria-label="Download PDF Resume">Download PDF</button>
       </div>
     </header>
 
+    <main id="main-content">
     <section class="card">
+      <div class="divider"></div>
       <h2>Summary</h2>
       <p>Resourceful IT Support Engineer with MSP experience. Strong with Microsoft 365, Entra ID/Azure AD, Intune, and PowerShell. Known for clean documentation, quick triage, and a calm, service-first approach. Currently homelabbing with a focus on building UniFi infrastructure and VMs using VMware.</p>
     </section>
 
     <section class="card">
+      <div class="divider"></div>
       <h2>Experience</h2>
 
       <article style="margin-bottom:14px">
@@ -74,6 +310,7 @@
     </section>
 
     <section class="card">
+      <div class="divider"></div>
       <h2>Skills</h2>
       <div class="grid">
         <div>
@@ -101,20 +338,33 @@
           <div class="muted">RDP, Citrix, Parallels, Nextiva</div>
         </div>
       </div>
+      <div class="tech-stack-bar">
+        <span class="tech-stack-item">Windows</span>
+        <span class="tech-stack-item">Microsoft 365</span>
+        <span class="tech-stack-item">Azure AD</span>
+        <span class="tech-stack-item">Intune</span>
+        <span class="tech-stack-item">PowerShell</span>
+        <span class="tech-stack-item">VMware</span>
+        <span class="tech-stack-item">Proxmox</span>
+        <span class="tech-stack-item">SonicWall</span>
+        <span class="tech-stack-item">RDP</span>
+      </div>
     </section>
 
     <section class="card">
+      <div class="divider"></div>
       <h2>Highlights</h2>
-      <span class="pill">Ticket triage under 30 minutes SLA</span>
-      <span class="pill">Calm phone presence</span>
-      <span class="pill">Strong docs and handoffs</span>
-      <span class="pill">Automation mindset</span>
-      <span class="pill">Active homelabber (UniFi + VMware)</span>
+      <span class="pill" tabindex="0"><svg class="pill-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>Ticket triage under 30 minutes SLA</span>
+      <span class="pill" tabindex="0"><svg class="pill-icon" viewBox="0 0 20 20"><rect x="4" y="8" width="12" height="4" rx="2"/></svg>Calm phone presence</span>
+      <span class="pill" tabindex="0"><svg class="pill-icon" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="3"/></svg>Strong docs and handoffs</span>
+      <span class="pill" tabindex="0"><svg class="pill-icon" viewBox="0 0 20 20"><path d="M4 10h12" stroke-width="2" stroke="currentColor"/></svg>Automation mindset</span>
+      <span class="pill" tabindex="0"><svg class="pill-icon" viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="7" ry="4"/></svg>Active homelabber (UniFi + VMware)</span>
     </section>
 
     <footer class="muted">
       © <span id="y"></span> Nate N. Last updated locally. Hosted on Cloudflare Pages.
     </footer>
+    </main>
   </div>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
