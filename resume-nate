@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nate N. — Resume</title>
+  <meta name="description" content="Resume of Nate N., IT Support Engineer with Tier II experience in MSP environments.">
+  <style>
+    :root{--bg:#0f1115;--fg:#e9eef3;--muted:#a8b3bd;--card:#171a21;--accent:#8fd3ff;}
+    @media (prefers-color-scheme: light){
+      :root{--bg:#f7f8fa;--fg:#14171a;--muted:#4b5563;--card:#ffffff;--accent:#0369a1;}
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    .wrap{max-width:900px;margin:0 auto;padding:32px 20px}
+    header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 20px;align-items:flex-start}
+    h1{margin:0 0 4px;font-size:32px;line-height:1.2}
+    .muted{color:var(--muted)}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px;margin:18px 0}
+    h2{margin:0 0 8px;font-size:20px}
+    h3{margin:0 0 6px;font-size:16px}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:720px){.grid{grid-template-columns:1fr}}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;margin:4px 6px 0 0;font-size:14px}
+    footer{margin:26px 0 0;font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Nate N.</h1>
+        <div class="muted">IT Support Engineer (Tier II) • Austin, TX</div>
+      </div>
+      <div class="muted">
+        <div><a href="mailto:nnwaeze@gmail.com">nnwaeze@gmail.com</a></div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Summary</h2>
+      <p>Resourceful IT Support Engineer with MSP experience. Strong with Microsoft 365, Entra ID/Azure AD, Intune, and PowerShell. Known for clean documentation, quick triage, and a calm, service-first approach. Currently homelabbing with a focus on building UniFi infrastructure and VMs using VMware.</p>
+    </section>
+
+    <section class="card">
+      <h2>Experience</h2>
+
+      <article style="margin-bottom:14px">
+        <h3>Zenguard — Support Engineer I <span class="muted">| Jun 2024 to Present • Dallas, TX</span></h3>
+        <ul>
+          <li>Use PowerShell and Bash for user setup, cleanup tasks, and faster device config.</li>
+          <li>Troubleshoot Windows 10/11 and Windows Server access, profiles, and policy issues.</li>
+          <li>Support device provisioning and compliance via Entra ID and Intune; tune GPO and baselines.</li>
+          <li>Work with Datto BCDR and Duplicati; verify successful local and cloud restores.</li>
+          <li>Assist with VMware, Hyper‑V, and Proxmox; resolve firewall and VPN issues across SonicWall, Meraki, Ubiquiti, and FortiGate.</li>
+          <li>Remote access support with RDP, Citrix, and Parallels; VOIP help with Nextiva.</li>
+          <li>Write repeatable fixes in Scribe and IT Glue to help new techs ramp faster.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Barrage Systems LLC — Level 1 Desktop Support Agent <span class="muted">| Dec 2023 to May 2024 • DFW, TX</span></h3>
+        <ul>
+          <li>Automated laptop setup with PowerShell and BAT to cut migration time in half.</li>
+          <li>Used M365 and NinjaOne to solve endpoint, security, and performance issues.</li>
+          <li>Handled asset swaps and escalations; kept timelines tight with clear comms.</li>
+          <li>Wrote simple guides for end users and internal teams to improve consistency.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div>
+          <strong>Systems</strong>
+          <div class="muted">Windows 10/11, Windows Server, Microsoft 365, Entra ID/Azure AD</div>
+        </div>
+        <div>
+          <strong>Scripting</strong>
+          <div class="muted">PowerShell, Bash</div>
+        </div>
+        <div>
+          <strong>Networking</strong>
+          <div class="muted">DHCP, DNS, TCP/IP, VPN, Group Policy</div>
+        </div>
+        <div>
+          <strong>Infra & Tools</strong>
+          <div class="muted">Hyper‑V, VMware, Proxmox, Datto BCDR, Duplicati, Freshservice, Scribe, IT Glue</div>
+        </div>
+        <div>
+          <strong>Firewalls</strong>
+          <div class="muted">SonicWall, Meraki, FortiGate, Ubiquiti</div>
+        </div>
+        <div>
+          <strong>Remote/VOIP</strong>
+          <div class="muted">RDP, Citrix, Parallels, Nextiva</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Highlights</h2>
+      <span class="pill">Ticket triage under 30 minutes SLA</span>
+      <span class="pill">Calm phone presence</span>
+      <span class="pill">Strong docs and handoffs</span>
+      <span class="pill">Automation mindset</span>
+      <span class="pill">Active homelabber (UniFi + VMware)</span>
+    </section>
+
+    <footer class="muted">
+      © <span id="y"></span> Nate N. Last updated locally. Hosted on Cloudflare Pages.
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
