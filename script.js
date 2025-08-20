@@ -1,27 +1,20 @@
-// script.js
-// ---- Theme toggle with persistence ----
+// script.js — interactions
+// Theme toggle with persistence
 const root = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const saved = localStorage.getItem('theme');
 if (saved === 'light') root.setAttribute('data-theme','light');
-function flipIcon(){
-  themeIcon.style.transform = root.getAttribute('data-theme') === 'light' ? 'rotate(180deg)' : 'rotate(0deg)';
-}
+function flipIcon(){ themeIcon.style.transform = root.getAttribute('data-theme') === 'light' ? 'rotate(180deg)' : 'rotate(0deg)'; }
 flipIcon();
 themeToggle?.addEventListener('click', () => {
   const isLight = root.getAttribute('data-theme') === 'light';
-  if (isLight) {
-    root.removeAttribute('data-theme');
-    localStorage.setItem('theme','dark');
-  } else {
-    root.setAttribute('data-theme','light');
-    localStorage.setItem('theme','light');
-  }
+  if (isLight) { root.removeAttribute('data-theme'); localStorage.setItem('theme','dark'); }
+  else { root.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); }
   flipIcon();
 });
 
-// ---- Scroll progress ----
+// Scroll progress
 const progress = document.getElementById('progress');
 addEventListener('scroll', () => {
   const h = document.documentElement;
@@ -30,24 +23,23 @@ addEventListener('scroll', () => {
   progress.style.width = `${(sc / max) * 100}%`;
 });
 
-// ---- Print button ----
+// Print
 document.getElementById('printBtn')?.addEventListener('click', () => window.print());
 
-// ---- Mailto with prefilled subject/body ----
-const email = 'nate.nn@example.com'; // <- CHANGE ME
+// Prefilled mailto
+const email = 'nate.nn@example.com'; // <- replace
 const subject = encodeURIComponent('Resume inquiry for Nate N.');
 const body = encodeURIComponent(`Hi Nate,
 
 I saw your resume site and wanted to connect about a role.
 
 Thanks,
-Your name
-`);
+Your name`);
 const mailtoHref = `mailto:${email}?subject=${subject}&body=${body}`;
 document.getElementById('mailtoTop').setAttribute('href', mailtoHref);
 document.getElementById('mailtoBottom').setAttribute('href', mailtoHref);
 
-// ---- Copy email + toast ----
+// Copy email + toast
 const copyBtn = document.getElementById('copyEmail');
 const toast = document.getElementById('toast');
 copyBtn?.addEventListener('click', async () => {
@@ -56,16 +48,12 @@ copyBtn?.addEventListener('click', async () => {
   setTimeout(() => toast.hidden = true, 1500);
 });
 
-// ---- JSON resume + vCard downloads (client-side blobs) ----
+// JSON resume + vCard downloads
 const resume = {
   basics: {
-    name: "Nate N.",
-    label: "Tier II Technical Support",
-    email,
-    location: { city: "Dallas", region: "TX", country: "US" },
-    profiles: [
-      { network: "GitHub", url: "https://github.com/CHANGE_ME" }
-    ],
+    name: "Nate N.", label: "Tier II Technical Support",
+    email, location: { city: "Dallas", region: "TX", country: "US" },
+    profiles: [{ network: "GitHub", url: "https://github.com/CHANGE_ME" }],
     summary: "Tier II Support with MSP experience. Strong documentation, fast triage, AD & M365, VPN, Unifi networking."
   },
   metrics: [
@@ -115,23 +103,18 @@ function setDownloadLink(idPrimary, idSecondary, mime, filename, text) {
     document.getElementById(idSecondary).setAttribute('download', filename);
   }
 }
-
-// JSON resume
 setDownloadLink('jsonDownload','jsonDownload2','application/json','resume.json', JSON.stringify(resume, null, 2));
 
-// vCard 3.0 (no phone, no LinkedIn)
+// vCard 3.0
 const vcard = [
-  'BEGIN:VCARD',
-  'VERSION:3.0',
-  'N:Nwaeze;Nate;;;',
-  'FN:Nate N.',
-  'TITLE:Tier II Technical Support',
-  `EMAIL;TYPE=INTERNET:${email}`,
-  'ADR;TYPE=WORK:;;Dallas;TX;;;USA',
-  'URL:https://github.com/CHANGE_ME',
-  'END:VCARD'
+  'BEGIN:VCARD','VERSION:3.0','N:Nwaeze;Nate;;;','FN:Nate N.','TITLE:Tier II Technical Support',
+  `EMAIL;TYPE=INTERNET:${email}`,'ADR;TYPE=WORK:;;Dallas;TX;;;USA','URL:https://github.com/CHANGE_ME','END:VCARD'
 ].join('\n');
 setDownloadLink('vcardDownload','vcardDownload2','text/vcard','NateN.vcf', vcard);
 
-// ---- Year ----
+// Reveal-on-scroll
+const observer = new IntersectionObserver((entries)=>entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.25});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Year
 document.getElementById('year').textContent = new Date().getFullYear();
