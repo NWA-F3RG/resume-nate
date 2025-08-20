@@ -5,15 +5,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nate N. — Tier II Technical Support (Dallas, TX)</title>
-  <meta name="description" content="Tier II Technical Support with MSP experience. Docs-first, fast triage, AD & M365, VPN, and Unifi networking.">
-  <meta property="og:title" content="Nate N. — Tier II Technical Support">
-  <meta property="og:description" content="MSP support, documentation, automation, and networking.">
-  <meta property="og:type" content="profile">
-  <meta property="og:locale" content="en_US">
+  <meta name="description" content="Tier II Technical Support with MSP experience. Docs-first, fast triage, AD & M365, VPN, and Unifi networking." />
+  <meta property="og:title" content="Nate N. — Tier II Technical Support" />
+  <meta property="og:description" content="MSP support, documentation, automation, and networking." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="en_US" />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 
-  <!-- JSON-LD Person schema (no phone/LinkedIn by request) -->
+  <!-- JSON-LD Person schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -27,6 +27,9 @@
   </script>
 </head>
 <body>
+  <!-- Background grid + glow -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
   <a class="skip" href="#main">Skip to content</a>
   <div id="progress"></div>
 
@@ -34,6 +37,7 @@
     <nav class="nav container" aria-label="Primary">
       <div class="brand">
         <span class="name">Nate N.</span>
+        <span class="dot"></span>
         <span class="role">Tier II Technical Support</span>
       </div>
       <div class="actions">
@@ -46,38 +50,64 @@
         </button>
       </div>
     </nav>
+
+    <!-- Hero -->
+    <div class="hero container">
+      <div class="hero-left">
+        <h1 class="display">Summary</h1>
+        <p class="lead">
+          Tier II Support specialist with MSP experience. I write tight docs, triage fast, and hand off clean.
+          Skilled across Microsoft 365, Active Directory, Intune, VPN (FortiClient, NetExtender, Meraki), and remote tools.
+          Homelabbing with Unifi networking and virtualized stacks.
+        </p>
+        <div class="chip-row">
+          <a id="mailtoTop" class="btn" href="#">Email me</a>
+          <a id="jsonDownload" class="btn ghost" href="#" download="resume.json">Download JSON</a>
+          <a id="vcardDownload" class="btn ghost" href="#" download="NateN.vcf">Download vCard</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main id="main" class="container">
-    <!-- Summary -->
-    <section id="summary" class="card">
-      <h1 class="h1">Summary</h1>
-      <p>
-        Tier II Support specialist with MSP experience. I write tight docs, triage fast, and hand off clean.
-        Skilled across Microsoft 365, Active Directory, Intune, VPN (FortiClient, NetExtender, Meraki), and remote tools.
-        Homelabbing with Unifi networking and virtualized stacks.
-      </p>
-      <div class="chip-row">
-        <a id="mailtoTop" class="btn" href="#">Email me</a>
-        <a id="jsonDownload" class="btn ghost" href="#" download="resume.json">Download JSON</a>
-        <a id="vcardDownload" class="btn ghost" href="#" download="NateN.vcf">Download vCard</a>
-      </div>
-    </section>
-
     <!-- Metrics -->
-    <section id="metrics" class="card">
-      <h2 class="h2">Key Performance Metrics</h2>
+    <section id="metrics" class="card reveal">
+      <div class="section-label">Key Performance Metrics</div>
       <div class="grid metrics">
-        <div class="metric"><span class="big">98%</span><span class="cap">Customer Satisfaction</span></div>
-        <div class="metric"><span class="big">25%</span><span class="cap">Faster Ticket Resolution</span></div>
-        <div class="metric"><span class="big">500+</span><span class="cap">Users Supported Monthly</span></div>
-        <div class="metric"><span class="big">5+</span><span class="cap">Professional Certifications</span></div>
+        <div class="metric">
+          <span class="ico circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 9 10H2l7 5-3 7 6-4 6 4-3-7 7-5h-7z"/></svg>
+          </span>
+          <div class="big">98%</div>
+          <div class="cap">Customer Satisfaction</div>
+        </div>
+        <div class="metric">
+          <span class="ico circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8V4m0 16v-4M4 12H0m24 0h-4M5 5l-3-3m20 20-3-3M5 19l-3 3m20-20-3 3"/></svg>
+          </span>
+          <div class="big">25%</div>
+          <div class="cap">Faster Ticket Resolution</div>
+        </div>
+        <div class="metric">
+          <span class="ico circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0v2H3v7h18v-7h-5v-2z"/></svg>
+          </span>
+          <div class="big">500+</div>
+          <div class="cap">Users Supported Monthly</div>
+        </div>
+        <div class="metric">
+          <span class="ico circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 6v6c0 5 3.8 9.5 9 10 5.2-.5 9-5 9-10V6l-9-4zm0 4 6 2.7V12c0 3.8-2.6 7.3-6 7.9-3.4-.6-6-4.1-6-7.9V8.7L12 6z"/></svg>
+          </span>
+          <div class="big">5+</div>
+          <div class="cap">Professional Certifications</div>
+        </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="card">
-      <h2 class="h2">Core Competencies</h2>
+    <section id="skills" class="card reveal">
+      <div class="section-label">Core Competencies</div>
       <div class="badges">
         <span class="badge">Ticketing & Triage</span>
         <span class="badge">Windows/macOS/Linux</span>
@@ -89,32 +119,43 @@
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="card">
-      <h2 class="h2">Experience</h2>
-      <article class="job">
-        <header><strong>Zenguard</strong> — Tier II Technical Support • Jun 2024–Present • Dallas, TX</header>
-        <ul>
-          <li>Built PowerShell and Bash helpers to speed user setup and cleanup tasks.</li>
-          <li>Troubleshot Windows sign-in, access, profiles, and policy issues; documented fixes.</li>
-          <li>Supported device provisioning and compliance via Intune; tuned GPO and baselines.</li>
-          <li>Worked with Datto BCDR and Duplicati; verified local and cloud restores.</li>
-          <li>Handled VPN/firewall escalations across SonicWall, Meraki, Ubiquiti, FortiGate.</li>
-        </ul>
-      </article>
-      <article class="job">
-        <header><strong>Barrage Systems LLC</strong> — Desktop Support Technician • Dec 2023–May 2024 • DFW, TX</header>
-        <ul>
-          <li>Automated laptop setup with PowerShell/BAT to cut migration time.</li>
-          <li>Resolved endpoint, security, and performance issues via M365 and NinjaOne.</li>
-          <li>Created step-by-step guides for end users and internal teams.</li>
-        </ul>
-      </article>
+    <section id="experience" class="card reveal">
+      <div class="section-label">Experience</div>
+      <div class="timeline">
+        <article class="job">
+          <div class="t-marker"></div>
+          <header class="t-header">
+            <strong>Zenguard</strong> — Tier II Technical Support
+            <span class="meta">Jun 2024–Present • Dallas, TX</span>
+          </header>
+          <ul class="t-body">
+            <li>Built PowerShell and Bash helpers to speed user setup and cleanup tasks.</li>
+            <li>Troubleshot Windows sign-in, access, profiles, and policy issues; documented fixes.</li>
+            <li>Supported device provisioning and compliance via Intune; tuned GPO and baselines.</li>
+            <li>Worked with Datto BCDR and Duplicati; verified local and cloud restores.</li>
+            <li>Handled VPN/firewall escalations across SonicWall, Meraki, Ubiquiti, FortiGate.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="t-marker"></div>
+          <header class="t-header">
+            <strong>Barrage Systems LLC</strong> — Desktop Support Technician
+            <span class="meta">Dec 2023–May 2024 • DFW, TX</span>
+          </header>
+          <ul class="t-body">
+            <li>Automated laptop setup with PowerShell/BAT to cut migration time.</li>
+            <li>Resolved endpoint, security, and performance issues via M365 and NinjaOne.</li>
+            <li>Created step-by-step guides for end users and internal teams.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <!-- Education -->
-    <section id="education" class="card">
-      <h2 class="h2">Education & Certifications</h2>
-      <p><strong>Tarrant County College</strong> — A.A.S. Information Technology (2022)</p>
+    <section id="education" class="card reveal">
+      <div class="section-label">Education & Certifications</div>
+      <p class="edu"><strong>Tarrant County College</strong> — A.A.S. Information Technology (2022)</p>
       <div class="badges">
         <span class="badge">CompTIA A+</span>
         <span class="badge">CompTIA Network+</span>
@@ -122,8 +163,8 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="card">
-      <h2 class="h2">Projects</h2>
+    <section id="projects" class="card reveal">
+      <div class="section-label">Projects</div>
       <div class="project">
         <h3 class="h3">Automated Onboarding Scripts</h3>
         <p>PowerShell scripts to create AD users, assign M365 licenses, and deploy baseline software.</p>
@@ -135,8 +176,8 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="card">
-      <h2 class="h2">Contact</h2>
+    <section id="contact" class="card reveal">
+      <div class="section-label">Contact</div>
       <p><strong>Email:</strong> <a id="mailtoBottom" href="#">nate.nn@example.com</a>
         <button id="copyEmail" class="btn sm ghost" aria-label="Copy email">Copy</button></p>
       <div class="downloads">
