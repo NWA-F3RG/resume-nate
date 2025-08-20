@@ -1,10 +1,10 @@
-/* styles.css */
 :root{
   --bg:#0B1020; --panel:#12172A; --elev:#171D34; --text:#E6E9F5; --muted:#A7AECC;
   --accent:#66E3FF; --accent2:#7C8CFF; --success:#7DFFC3; --border:#222A47;
-  --radius:16px; --space:24px;
-  --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.35);
+  --radius:16px;
+  --space:24px;
   color-scheme: dark;
+  --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.35);
 }
 [data-theme="light"]{
   --bg:#ffffff; --panel:#f6f8ff; --elev:#ffffff; --text:#0b1020; --muted:#47507a;
@@ -54,6 +54,7 @@ body{
 .job ul{padding-left:18px;margin:0}
 .project{margin-bottom:12px}
 
+.contact-grid{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}
 .downloads{display:flex;gap:10px;flex-wrap:wrap}
 
 .site-footer{padding:32px 0;color:var(--muted);text-align:center}
@@ -64,6 +65,7 @@ body{
 /* Responsive */
 @media (max-width:900px){
   .grid.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-grid{grid-template-columns:1fr}
 }
 
 /* Print */

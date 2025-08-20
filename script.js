@@ -1,14 +1,16 @@
-// script.js
 // ---- Theme toggle with persistence ----
 const root = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const saved = localStorage.getItem('theme');
 if (saved === 'light') root.setAttribute('data-theme','light');
+
 function flipIcon(){
+  // simple icon swap by rotating path (kept minimal)
   themeIcon.style.transform = root.getAttribute('data-theme') === 'light' ? 'rotate(180deg)' : 'rotate(0deg)';
 }
 flipIcon();
+
 themeToggle?.addEventListener('click', () => {
   const isLight = root.getAttribute('data-theme') === 'light';
   if (isLight) {
@@ -34,14 +36,15 @@ addEventListener('scroll', () => {
 document.getElementById('printBtn')?.addEventListener('click', () => window.print());
 
 // ---- Mailto with prefilled subject/body ----
-const email = 'nate.nn@example.com'; // <- CHANGE ME
+const email = 'nate.nn@example.com';
 const subject = encodeURIComponent('Resume inquiry for Nate N.');
 const body = encodeURIComponent(`Hi Nate,
 
 I saw your resume site and wanted to connect about a role.
 
-Thanks,
-Your name
+— Your name
+Company / Role
+Best contact
 `);
 const mailtoHref = `mailto:${email}?subject=${subject}&body=${body}`;
 document.getElementById('mailtoTop').setAttribute('href', mailtoHref);
@@ -62,9 +65,11 @@ const resume = {
     name: "Nate N.",
     label: "Tier II Technical Support",
     email,
+    phone: "+1-817-555-0100",
     location: { city: "Dallas", region: "TX", country: "US" },
     profiles: [
-      { network: "GitHub", url: "https://github.com/CHANGE_ME" }
+      { network: "GitHub", url: "https://github.com/nate" },
+      { network: "LinkedIn", url: "https://www.linkedin.com/in/naten" }
     ],
     summary: "Tier II Support with MSP experience. Strong documentation, fast triage, AD & M365, VPN, Unifi networking."
   },
@@ -119,19 +124,30 @@ function setDownloadLink(idPrimary, idSecondary, mime, filename, text) {
 // JSON resume
 setDownloadLink('jsonDownload','jsonDownload2','application/json','resume.json', JSON.stringify(resume, null, 2));
 
-// vCard 3.0 (no phone, no LinkedIn)
+// vCard 3.0 (simple)
 const vcard = [
   'BEGIN:VCARD',
   'VERSION:3.0',
   'N:Nwaeze;Nate;;;',
   'FN:Nate N.',
   'TITLE:Tier II Technical Support',
+  'TEL;TYPE=CELL:+1-817-555-0100',
   `EMAIL;TYPE=INTERNET:${email}`,
   'ADR;TYPE=WORK:;;Dallas;TX;;;USA',
-  'URL:https://github.com/CHANGE_ME',
+  'URL:https://www.linkedin.com/in/naten',
+  'URL:https://github.com/nate',
   'END:VCARD'
 ].join('\n');
 setDownloadLink('vcardDownload','vcardDownload2','text/vcard','NateN.vcf', vcard);
+
+// ---- Active section highlight (optional styling hook) ----
+const sections = [...document.querySelectorAll('main section')];
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ /* hook point if you add a sticky section nav later */ }
+  });
+},{threshold:0.4});
+sections.forEach(s=>observer.observe(s));
 
 // ---- Year ----
 document.getElementById('year').textContent = new Date().getFullYear();
