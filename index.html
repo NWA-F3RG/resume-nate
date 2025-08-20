@@ -9,6 +9,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    .navbar {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      padding: 8px 0 0 0;
+    }
+    .nav-link {
+      color: var(--accent);
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background .2s, color .2s;
+      position: relative;
+      text-decoration: none;
+      margin-right: 4px;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--pill-hover);
+      color: #fff;
+      text-decoration: none;
+    }
+    @media (max-width:600px) {
+      .navbar {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+      }
+    }
+    a {
+      position: relative;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .2s;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+    }
+    a:hover::after {
+      width: 100%;
+    }
+    .download-btn:focus {
+      outline: 2px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(143,211,255,0.18);
+    }
     :root {
       --bg: linear-gradient(120deg, #0f1115 0%, #1a2330 100%);
       --fg: #e9eef3;
@@ -254,10 +315,14 @@
     }
   </style>
 </head>
-<body>
+  <body style="opacity:0;transition:opacity .5s;">
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="wrap">
-  <header>
+    <header>
+      <nav class="navbar">
+        <a href="index.html" class="nav-link active">Resume</a>
+        <a href="homelab.html" class="nav-link">Homelab Projects</a>
+      </nav>
       <div style="display:flex;align-items:center;gap:18px;">
         <img src="https://avatars.githubusercontent.com/u/1222127?v=4" alt="Nate N. profile photo" class="profile-img" loading="lazy">
         <div>
@@ -265,7 +330,6 @@
           <div class="muted">IT Support Engineer (Tier II) • Austin, TX</div>
         </div>
       </div>
-      <a href="homelab.html" class="nav-link" style="margin-left:auto;">Homelab Projects →</a>
       <div class="muted">
         <a href="mailto:nnwaeze@gmail.com" class="email-link" aria-label="Email Nate">
           <svg viewBox="0 0 24 24"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.2l8 5.6 8-5.6V6.5a.5.5 0 0 0-.5-.5h-15Zm16 2.3-7.6 5.3a1.5 1.5 0 0 1-1.8 0L3.5 8.3V17.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V8.3Z"></path></svg>
@@ -368,6 +432,18 @@
     </main>
   </div>
   <script>
+    // Fade in on load
+    document.body.style.opacity = 1;
+    // Fade out on nav-link click
+    document.querySelectorAll('a.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.href && this.target !== '_blank') {
+          e.preventDefault();
+          document.body.style.opacity = 0;
+          setTimeout(() => { window.location = this.href; }, 400);
+        }
+      });
+    });
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
