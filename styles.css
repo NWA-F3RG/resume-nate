@@ -1,4 +1,4 @@
-/* styles.css — full file with equal-height two-up + no-overlap fix */
+/* styles.css — includes equal-height two-up + no-overlap fix + skill cards + job tags */
 
 /* ---------- Design tokens (light by default) ---------- */
 :root{
@@ -75,7 +75,7 @@ a:hover{text-decoration:underline}
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:24px;
-  margin:20px 0;               /* default outer spacing for standalone cards */
+  margin:20px 0;               /* default spacing for standalone cards */
 }
 .h1{font-size:32px;line-height:40px;margin:0 0 10px}
 .h2{font-size:22px;line-height:30px;margin:0 0 12px}
@@ -122,7 +122,7 @@ a:hover{text-decoration:underline}
   gap:16px;
 }
 @media (max-width: 420px){
-  .metrics-grid{grid-template-columns:1fr} /* tight phones */
+  .metrics-grid{grid-template-columns:1fr}
 }
 .metric{
   background:var(--elev);
@@ -169,18 +169,68 @@ a:hover{text-decoration:underline}
 
 /* ---------- Experience ---------- */
 .job{margin:10px 0 18px}
-.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;margin-bottom:6px}
+.job-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:8px;
+}
+.job-title{min-width:240px}
 .meta{color:var(--muted);font-size:14px}
 .bullets{margin:0;padding-left:18px}
 .bullets li{margin:4px 0}
 
-/* ---------- Education / Badges ---------- */
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.badge{
+/* job-specific skill tags (top-right) */
+.job-tags{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-self:flex-start;
+}
+.tag{
   background:var(--elev);
   border:1px solid var(--border);
-  padding:6px 10px;
   border-radius:999px;
+  padding:4px 8px;
+  font-size:13px;
+  color:var(--text);
+  box-shadow:var(--shadow);
+}
+@media (max-width: 680px){
+  .job-head{flex-direction:column;gap:8px}
+}
+
+/* ---------- Technical Skills (category cards with badge clouds) ---------- */
+.cards-grid{
+  display:grid;
+  gap:18px;
+}
+@media (min-width: 900px){
+  .cards-grid{
+    grid-template-columns: repeat(3, minmax(0,1fr));
+  }
+}
+.skill-card{
+  background:var(--elev);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.badge-cloud{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.badge-cloud .tag{ /* reuse .tag styling; just slightly larger */
+  padding:6px 10px;
   font-size:14px;
 }
 
