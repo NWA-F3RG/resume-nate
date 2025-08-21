@@ -1,4 +1,5 @@
-/* styles.css — includes equal-height two-up + no-overlap fix + skill cards + job tags */
+/* styles.css — full file with two-up equal height, spacing fixes, value card, job tags, and skills cards.
+   Also updates the last metric card to "Guides & SOPs Written" with a document icon. */
 
 /* ---------- Design tokens (light by default) ---------- */
 :root{
@@ -81,6 +82,7 @@ a:hover{text-decoration:underline}
 .h2{font-size:22px;line-height:30px;margin:0 0 12px}
 .h3{font-size:18px;margin:0 0 6px}
 .center{text-align:center}
+.center-flex{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
@@ -94,7 +96,7 @@ a:hover{text-decoration:underline}
 }
 .chip.link{color:var(--text);text-decoration:none}
 
-/* ---------- Two-up layout (with no-overlap fix) ---------- */
+/* ---------- Two-up layout (with spacing fix) ---------- */
 .two-up{
   display:grid;
   gap:24px;
@@ -167,6 +169,27 @@ a:hover{text-decoration:underline}
   fill:none;
 }
 
+/* ---------- What I Bring card ---------- */
+.value-card{ margin:32px 0 }   /* extra breathing room */
+.value-grid{
+  display:grid;
+  gap:16px;
+  text-align:center;
+}
+@media (min-width: 900px){
+  .value-grid{ grid-template-columns: repeat(3, 1fr) }
+}
+.value-item{ padding:6px 8px }
+.value-title{
+  font-size:15px;
+  font-weight:700;
+  margin:0 0 6px;
+}
+.value-text{
+  margin:0;
+  color:var(--muted);
+}
+
 /* ---------- Experience ---------- */
 .job{margin:10px 0 18px}
 .job-head{
@@ -210,9 +233,7 @@ a:hover{text-decoration:underline}
   gap:18px;
 }
 @media (min-width: 900px){
-  .cards-grid{
-    grid-template-columns: repeat(3, minmax(0,1fr));
-  }
+  .cards-grid{ grid-template-columns: repeat(3, minmax(0,1fr)) }
 }
 .skill-card{
   background:var(--elev);
@@ -229,7 +250,7 @@ a:hover{text-decoration:underline}
   flex-wrap:wrap;
   gap:8px;
 }
-.badge-cloud .tag{ /* reuse .tag styling; just slightly larger */
+.badge-cloud .tag{             /* reuse .tag styling; just slightly larger */
   padding:6px 10px;
   font-size:14px;
 }
