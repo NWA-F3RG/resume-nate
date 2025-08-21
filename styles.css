@@ -1,5 +1,5 @@
-/* styles.css — full file with two-up equal height, spacing fixes, value card, job tags, and skills cards.
-   Also updates the last metric card to "Guides & SOPs Written" with a document icon. */
+/* styles.css — full file with mobile polish (iPhone-friendly), equal-height two-up,
+   spacing fixes, value card, job tags, and skills cards. */
 
 /* ---------- Design tokens (light by default) ---------- */
 :root{
@@ -270,4 +270,74 @@ a:hover{text-decoration:underline}
   .chip{border:none;background:#fff;color:#000}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:12px;color:#333}
   @page{margin:12mm}
+}
+
+/* ===================================================================== */
+/* =============  MOBILE POLISH (iPhone-friendly header)  ============== */
+/* ===================================================================== */
+
+/* 1) Make the action buttons a single-line, swipeable row on small screens */
+@media (max-width: 560px){
+  .site-header { border-bottom-color: var(--border); }
+  .nav{
+    display:block;              /* stack brand then actions */
+    padding:10px 0;
+    min-height:auto;
+  }
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    margin-bottom:10px;
+  }
+  .brand .name{ font-weight:800; font-size:18px; line-height:1.1; }
+  .brand .role{ display:block; margin:0; font-size:14px; line-height:1.2; color:var(--muted); }
+
+  .nav-actions{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;            /* horizontal scroll when needed */
+    -webkit-overflow-scrolling: touch;
+    white-space:nowrap;
+    padding:2px 2px 8px;
+    margin:0 -8px;              /* edge-to-edge scroll affordance */
+  }
+  .nav-actions::-webkit-scrollbar{ display:none; }
+
+  .btn, .icon-btn{
+    flex:0 0 auto;              /* don’t wrap */
+    padding:10px 12px;
+    border-radius:14px;
+  }
+  .icon-btn svg{ width:18px; height:18px; }
+}
+
+/* 2) Safer area at the very top (notch/iOS) */
+@supports (padding: max(0px)) {
+  .site-header { padding-top: max(0px, env(safe-area-inset-top)); }
+}
+
+/* 3) Tighter hero on phones + responsive type so it doesn't feel huge */
+.h1{
+  font-size:clamp(24px, 6vw, 32px);
+  line-height:1.2;
+}
+#summary p{
+  max-width:60ch;
+  margin-inline:auto;
+  font-size:clamp(14px, 3.8vw, 16px);
+}
+@media (max-width:560px){
+  .card{ padding:16px; border-radius:12px; }
+  .chips{ justify-content:center; }
+  .chip{ font-size:13px; padding:6px 10px; }
+}
+
+/* 4) Prevent overlap and ensure clean spacing after the two-up block */
+.two-up{ margin: 20px 0 32px; }
+.two-up > .card{ margin:0; }
+
+/* 5) Make metric tiles fit narrow screens gracefully */
+@media (max-width: 420px){
+  .metrics-grid{ grid-template-columns: 1fr; }
 }
