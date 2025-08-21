@@ -1,7 +1,7 @@
-/* styles.css — full file with mobile polish (iPhone-friendly), equal-height two-up,
-   spacing fixes, value card, job tags, and skills cards. */
+/* styles.css — full file with 4-row header, icons on contact row, GitHub/LinkedIn buttons,
+   mobile polish, equal-height two-up, spacing fixes, value card, job tags, skills cards. */
 
-/* ---------- Design tokens (light by default) ---------- */
+/* ---------- Design tokens ---------- */
 :root{
   --bg:#f6f8fb;
   --panel:#ffffff;
@@ -13,9 +13,12 @@
   --border:#e2e8f0;
   --radius:14px;
   --shadow:0 1px 2px rgba(2,6,23,.06), 0 8px 24px rgba(2,6,23,.06);
+
+  --brand-linkedin:#0a66c2;
+  --brand-github:#0f172a; /* dark slate */
 }
 
-/* Optional dark-mode polish */
+/* Dark mode */
 @media (prefers-color-scheme: dark){
   :root{
     --bg:#0b1020;
@@ -27,6 +30,8 @@
     --success:#7dffc3;
     --border:#222a47;
     --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.35);
+
+    --brand-github:#0b0f1e;
   }
 }
 
@@ -43,31 +48,83 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .container{max-width:1100px;margin-inline:auto;padding:24px}
 
-/* ---------- Header / Nav ---------- */
+/* ---------- HEADER (4 rows) ---------- */
 .site-header{
   position:sticky;top:0;z-index:10;
-  background:color-mix(in srgb, var(--panel) 85%, transparent);
+  background:color-mix(in srgb, var(--panel) 92%, transparent);
   backdrop-filter: blur(6px);
   border-bottom:1px solid var(--border);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
-.brand .name{font-weight:800}
-.brand .role{margin-left:8px;color:var(--muted)}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.icon-btn,.btn{
+.header-block{
+  display:grid;
+  gap:8px;
+  padding-block:14px;
+}
+.site-name{
+  margin:0;
+  font-size:clamp(26px, 4.8vw, 34px);
+  line-height:1.15;
+  font-weight:800;
+}
+.site-role{
+  margin:0;
+  color:var(--muted);
+  font-size:clamp(15px, 2.6vw, 18px);
+}
+
+/* Row 3: email • phone • location */
+.contact-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 20px;
+}
+.contact-item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--text);
+}
+.contact-item:hover{ text-decoration:none }
+.contact-item .icon{
+  display:inline-flex;
+  width:18px;height:18px;
+  color:var(--muted);
+}
+.contact-item .icon svg{
+  width:18px;height:18px;
+  stroke:currentColor;fill:none;stroke-width:2;
+}
+.contact-item .icon svg path:first-child[fill]{ fill:none } /* safety */
+
+/* Row 4: GitHub + LinkedIn buttons */
+.header-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.btn{
   border:1px solid var(--border);
   background:var(--elev);
   color:var(--text);
   padding:10px 14px;
   border-radius:12px;
   cursor:pointer;
-  display:inline-flex;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;gap:10px;
   box-shadow:var(--shadow);
+  font-weight:600;
 }
-.btn.ghost{background:transparent}
-.icon-btn{padding:8px}
-.icon-btn svg{width:20px;height:20px;display:block}
-.btn:hover,.icon-btn:hover{border-color:var(--accent)}
+.btn svg{ width:18px;height:18px; fill:currentColor; }
+.btn.brand.github{
+  background:var(--brand-github);
+  color:#fff;
+  border-color:transparent;
+}
+.btn.brand.linkedin{
+  background:var(--brand-linkedin);
+  color:#fff;
+  border-color:transparent;
+}
+.btn.brand:hover{ opacity:.93 }
 
 /* ---------- Cards & headings ---------- */
 .card{
@@ -76,45 +133,23 @@ a:hover{text-decoration:underline}
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:24px;
-  margin:20px 0;               /* default spacing for standalone cards */
+  margin:20px 0;
 }
 .h1{font-size:32px;line-height:40px;margin:0 0 10px}
 .h2{font-size:22px;line-height:30px;margin:0 0 12px}
 .h3{font-size:18px;margin:0 0 6px}
 .center{text-align:center}
-.center-flex{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
 
-/* Chips */
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.chip{
-  border:1px solid var(--border);
-  background:var(--elev);
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:14px;
-  color:var(--muted);
-}
-.chip.link{color:var(--text);text-decoration:none}
-
-/* ---------- Two-up layout (with spacing fix) ---------- */
+/* ---------- Two-up (equal height & spacing) ---------- */
 .two-up{
   display:grid;
   gap:24px;
-  margin:20px 0 32px;          /* spacing around the pair to avoid touching neighbors */
+  margin:20px 0 32px;
 }
-.two-up > .card{
-  margin:0;                     /* remove inner margins so grid controls spacing */
-}
+.two-up > .card{ margin:0 }
 @media (min-width: 960px){
-  .two-up{
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;       /* equal height cards */
-  }
-  .two-up > .card{
-    height:100%;
-    display:flex;
-    flex-direction:column;      /* lets content fill card height */
-  }
+  .two-up{ grid-template-columns:1fr 1fr; align-items:stretch }
+  .two-up > .card{ height:100%; display:flex; flex-direction:column }
 }
 
 /* ---------- Metrics ---------- */
@@ -143,10 +178,8 @@ a:hover{text-decoration:underline}
 /* ---------- Core Competencies ---------- */
 .competencies{
   list-style:none;
-  padding:0;
-  margin:0;
-  display:grid;
-  gap:10px;
+  padding:0;margin:0;
+  display:grid;gap:10px;
 }
 .competencies li{
   display:grid;
@@ -158,62 +191,29 @@ a:hover{text-decoration:underline}
   border:1px solid var(--border);
   border-radius:10px;
 }
-.comp-icon{
-  color:var(--success);
-  margin-top:2px;
-}
-.comp-icon svg{
-  width:22px;height:22px;
-  stroke:currentColor;
-  stroke-width:2;
-  fill:none;
-}
+.comp-icon{ color:var(--success); margin-top:2px }
+.comp-icon svg{ width:22px;height:22px; stroke:currentColor; stroke-width:2; fill:none }
 
-/* ---------- What I Bring card ---------- */
-.value-card{ margin:32px 0 }   /* extra breathing room */
-.value-grid{
-  display:grid;
-  gap:16px;
-  text-align:center;
-}
+/* ---------- Value card ---------- */
+.value-card{ margin:32px 0 }
+.value-grid{ display:grid; gap:16px; text-align:center }
 @media (min-width: 900px){
   .value-grid{ grid-template-columns: repeat(3, 1fr) }
 }
 .value-item{ padding:6px 8px }
-.value-title{
-  font-size:15px;
-  font-weight:700;
-  margin:0 0 6px;
-}
-.value-text{
-  margin:0;
-  color:var(--muted);
-}
+.value-title{ font-size:15px; font-weight:700; margin:0 0 6px }
+.value-text{ margin:0; color:var(--muted) }
 
 /* ---------- Experience ---------- */
 .job{margin:10px 0 18px}
-.job-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:12px;
-  margin-bottom:8px;
-}
+.job-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:8px }
 .job-title{min-width:240px}
 .meta{color:var(--muted);font-size:14px}
 .bullets{margin:0;padding-left:18px}
 .bullets li{margin:4px 0}
 
-/* job-specific skill tags (top-right) */
-.job-tags{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  align-self:flex-start;
-}
+/* job-specific tags */
+.job-tags{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px; align-self:flex-start }
 .tag{
   background:var(--elev);
   border:1px solid var(--border);
@@ -227,11 +227,8 @@ a:hover{text-decoration:underline}
   .job-head{flex-direction:column;gap:8px}
 }
 
-/* ---------- Technical Skills (category cards with badge clouds) ---------- */
-.cards-grid{
-  display:grid;
-  gap:18px;
-}
+/* ---------- Technical Skills cards ---------- */
+.cards-grid{ display:grid; gap:18px }
 @media (min-width: 900px){
   .cards-grid{ grid-template-columns: repeat(3, minmax(0,1fr)) }
 }
@@ -242,22 +239,8 @@ a:hover{text-decoration:underline}
   padding:16px;
   box-shadow:var(--shadow);
 }
-.badge-cloud{
-  list-style:none;
-  padding:0;
-  margin:8px 0 0;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.badge-cloud .tag{             /* reuse .tag styling; just slightly larger */
-  padding:6px 10px;
-  font-size:14px;
-}
-
-/* ---------- Projects ---------- */
-.project{padding:8px 0;border-top:1px dashed var(--border)}
-.project:first-child{border-top:none}
+.badge-cloud{ list-style:none; padding:0; margin:8px 0 0; display:flex; flex-wrap:wrap; gap:8px }
+.badge-cloud .tag{ padding:6px 10px; font-size:14px }
 
 /* ---------- Footer ---------- */
 .site-footer{padding:24px 0;color:var(--muted);text-align:center}
@@ -265,79 +248,16 @@ a:hover{text-decoration:underline}
 /* ---------- Print ---------- */
 @media print{
   body{background:#fff;color:#000}
-  .site-header,.nav-actions,.icon-btn,.btn{display:none !important}
+  .site-header{position:static;background:#fff;border:none}
+  .btn{display:none !important}
   .card{background:#fff;border-color:#bbb;box-shadow:none;margin:8px 0;padding:12px}
-  .chip{border:none;background:#fff;color:#000}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:12px;color:#333}
   @page{margin:12mm}
 }
 
-/* ===================================================================== */
-/* =============  MOBILE POLISH (iPhone-friendly header)  ============== */
-/* ===================================================================== */
-
-/* 1) Make the action buttons a single-line, swipeable row on small screens */
+/* ---------- Mobile polish for header ---------- */
 @media (max-width: 560px){
-  .site-header { border-bottom-color: var(--border); }
-  .nav{
-    display:block;              /* stack brand then actions */
-    padding:10px 0;
-    min-height:auto;
-  }
-  .brand{
-    display:flex;
-    align-items:baseline;
-    gap:8px;
-    margin-bottom:10px;
-  }
-  .brand .name{ font-weight:800; font-size:18px; line-height:1.1; }
-  .brand .role{ display:block; margin:0; font-size:14px; line-height:1.2; color:var(--muted); }
-
-  .nav-actions{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;            /* horizontal scroll when needed */
-    -webkit-overflow-scrolling: touch;
-    white-space:nowrap;
-    padding:2px 2px 8px;
-    margin:0 -8px;              /* edge-to-edge scroll affordance */
-  }
-  .nav-actions::-webkit-scrollbar{ display:none; }
-
-  .btn, .icon-btn{
-    flex:0 0 auto;              /* don’t wrap */
-    padding:10px 12px;
-    border-radius:14px;
-  }
-  .icon-btn svg{ width:18px; height:18px; }
-}
-
-/* 2) Safer area at the very top (notch/iOS) */
-@supports (padding: max(0px)) {
-  .site-header { padding-top: max(0px, env(safe-area-inset-top)); }
-}
-
-/* 3) Tighter hero on phones + responsive type so it doesn't feel huge */
-.h1{
-  font-size:clamp(24px, 6vw, 32px);
-  line-height:1.2;
-}
-#summary p{
-  max-width:60ch;
-  margin-inline:auto;
-  font-size:clamp(14px, 3.8vw, 16px);
-}
-@media (max-width:560px){
-  .card{ padding:16px; border-radius:12px; }
-  .chips{ justify-content:center; }
-  .chip{ font-size:13px; padding:6px 10px; }
-}
-
-/* 4) Prevent overlap and ensure clean spacing after the two-up block */
-.two-up{ margin: 20px 0 32px; }
-.two-up > .card{ margin:0; }
-
-/* 5) Make metric tiles fit narrow screens gracefully */
-@media (max-width: 420px){
-  .metrics-grid{ grid-template-columns: 1fr; }
+  .header-block{ gap:10px; padding-block:12px }
+  .contact-row{ gap:10px 16px }
+  .btn{ padding:10px 12px; border-radius:14px }
 }
