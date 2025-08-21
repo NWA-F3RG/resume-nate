@@ -1,4 +1,5 @@
-/* styles.css — full file with two-up equal height, spacing fixes, value card, job tags, and skills cards */
+/* styles.css — full file with two-up equal height, spacing fixes, value card, job tags, and skills cards.
+   Also updates the last metric card to "Guides & SOPs Written" with a document icon. */
 
 /* ---------- Design tokens (light by default) ---------- */
 :root{
