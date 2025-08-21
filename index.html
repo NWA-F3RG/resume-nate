@@ -1,105 +1,170 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nate N. — Tier II Technical Support (Dallas, TX)</title>
-  <meta name="description" content="Tier II Technical Support with MSP experience. Strong docs, fast triage, AD & M365, VPN, and Unifi networking.">
-  <meta property="og:title" content="Nate N. — Tier II Technical Support">
-  <meta property="og:description" content="MSP support, documentation, automation, and networking.">
-  <meta property="og:type" content="profile">
-  <meta property="og:locale" content="en_US">
+  <meta name="description" content="Tier II Technical Support with MSP experience. Strong docs, fast triage, AD & M365, VPN, and Unifi networking." />
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-
-  <!-- JSON-LD Person schema -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Nate N.",
-    "jobTitle":"Tier II Technical Support",
-    "address":{"@type":"PostalAddress","addressLocality":"Dallas","addressRegion":"TX","addressCountry":"US"},
-    "email":"mailto:nate.nn@example.com",
-    "telephone":"+1-817-555-0100",
-    "sameAs":[
-      "https://github.com/nate",
-      "https://www.linkedin.com/in/naten"
-    ]
-  }
-  </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div id="progress"></div>
-
   <header class="site-header">
-    <nav class="nav container" aria-label="Primary">
+    <div class="container nav">
       <div class="brand">
         <span class="name">Nate N.</span>
         <span class="role">Tier II Technical Support</span>
       </div>
-      <div class="actions">
+      <nav class="nav-actions" aria-label="Primary">
+        <a class="btn ghost" href="#experience">Experience</a>
+        <a class="btn ghost" href="#skills-cards">Technical Skills</a>
+        <a class="btn" href="mailto:nate.nn@example.com?subject=Resume%20inquiry%20for%20Nate%20N.&body=Hi%20Nate%2C%0A%0AI%20saw%20your%20resume%20site%20and%20wanted%20to%20connect.%0A%0AThanks!">Email me</a>
         <a class="icon-btn" href="https://github.com/nate" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.79.42-1.3.77-1.6-2.67-.3-5.47-1.33-5.47-5.9 0-1.3.47-2.36 1.24-3.19-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.22a11.4 11.4 0 0 1 6.01 0c2.29-1.54 3.3-1.22 3.3-1.22.66 1.65.24 2.87.12 3.17.77.83 1.24 1.89 1.24 3.19 0 4.58-2.81 5.6-5.49 5.9.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.58A12 12 0 0 0 12 .5z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.79.42-1.3.77-1.6-2.67-.3-5.47-1.33-5.47-5.9 0-1.3.47-2.36 1.24-3.19-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.22a11.4 11.4 0 0 1 6.01 0c2.29-1.54 3.3-1.22 3.3-1.22.66 1.65.24 2.87.12 3.17.77.83 1.24 1.89 1.24 3.19 0 4.58-2.81 5.6-5.49 5.9.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.58A12 12 0 0 0 12 .5z" fill="currentColor"/></svg>
         </a>
-        <a class="icon-btn" href="https://www.linkedin.com/in/naten" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5 2.5 2.5 0 0 0 4.98 3.5zM3 9h4v12H3zM9 9h3.8v1.8h.05c.53-1 1.82-2.05 3.74-2.05 4 0 4.74 2.63 4.74 6v7.25h-4V15.8c0-1.47-.02-3.37-2.05-3.37-2.05 0-2.36 1.6-2.36 3.26V21H9z"/></svg>
-        </a>
-        <button id="printBtn" class="btn sm" aria-label="Download PDF">Download PDF</button>
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle light mode">
-          <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1zm0 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8-1a1 1 0 0 1 1 1 9 9 0 1 1-9-9 1 1 0 0 1 1 1 7 7 0 1 0 7 7z"/></svg>
-        </button>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main id="main" class="container">
-    <!-- Hero / Summary -->
+  <main class="container">
+    <!-- Summary / Hero -->
     <section id="summary" class="card">
       <h1 class="h1">Summary</h1>
       <p>
-        Tier II Support specialist with MSP experience. Strong documentation habit, fast triage, and clean handoffs.
+        Tier II Support specialist with MSP experience. I write tight docs, triage fast, and hand off clean.
         Skilled across Microsoft 365, Active Directory, Intune, VPN (FortiClient, NetExtender, Meraki), and remote tools.
-        Homelabbing with Unifi networking and virtualized stacks.
+        Currently homelabbing with Unifi networking and virtualized stacks.
       </p>
-      <div class="chip-row">
-        <a id="mailtoTop" class="btn" href="#">Email me</a>
-        <a id="jsonDownload" class="btn ghost" href="#" download="resume.json">Download JSON</a>
-        <a id="vcardDownload" class="btn ghost" href="#" download="NateN.vcf">Download vCard</a>
+      <div class="chips">
+        <span class="chip">Dallas, TX</span>
+        <a class="chip link" href="mailto:nate.nn@example.com">nate.nn@example.com</a>
+        <a class="chip link" href="https://github.com/nate" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
 
-    <!-- Metrics -->
-    <section id="metrics" class="card">
-      <h2 class="h2">Key Performance Metrics</h2>
-      <div class="grid metrics">
-        <div class="metric"><span class="big">98%</span><span class="cap">Customer Satisfaction</span></div>
-        <div class="metric"><span class="big">25%</span><span class="cap">Faster Ticket Resolution</span></div>
-        <div class="metric"><span class="big">500+</span><span class="cap">Users Supported Monthly</span></div>
-        <div class="metric"><span class="big">5+</span><span class="cap">Professional Certifications</span></div>
-      </div>
-    </section>
+    <!-- Two-up: Metrics + Core Competencies (equal height; proper spacing) -->
+    <div class="two-up">
+      <!-- Key Performance Metrics -->
+      <section id="metrics" class="card" aria-labelledby="metrics-title">
+        <h2 id="metrics-title" class="h2 center">Key Performance Metrics</h2>
 
-    <!-- Skills -->
-    <section id="skills" class="card">
-      <h2 class="h2">Core Competencies</h2>
-      <div class="badges">
-        <span class="badge">Ticketing & Triage</span>
-        <span class="badge">Windows/macOS/Linux</span>
-        <span class="badge">AD & M365</span>
-        <span class="badge">VPN (Forti, NetExtender, Meraki)</span>
-        <span class="badge">Docs & SOPs</span>
-        <span class="badge">Remote Tools (RDP, Splashtop)</span>
-      </div>
-    </section>
+        <div class="metrics-grid">
+          <!-- CSAT -->
+          <article class="metric">
+            <span class="metric-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <p class="metric-value">98%</p>
+            <p class="metric-caption">Customer Satisfaction Rate</p>
+          </article>
 
-    <!-- Experience -->
+          <!-- Faster Resolution -->
+          <article class="metric">
+            <span class="metric-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <p class="metric-value">25%</p>
+            <p class="metric-caption">Faster Ticket Resolution</p>
+          </article>
+
+          <!-- Users Supported -->
+          <article class="metric">
+            <span class="metric-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28">
+                <circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M5 20c0-4 14-4 14 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="metric-value">500+</p>
+            <p class="metric-caption">Users Supported Monthly</p>
+          </article>
+
+          <!-- Certifications -->
+          <article class="metric">
+            <span class="metric-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28">
+                <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M9.5 12.5l-2.5 6.5 5-3 5 3-2.5-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <p class="metric-value">5+</p>
+            <p class="metric-caption">Professional Certifications</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Core Competencies (same icon on every line) -->
+      <section id="skills" class="card" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="h2 center">Core Competencies</h2>
+        <ul class="competencies" role="list">
+          <li>
+            <span class="comp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+            </span>
+            Advanced Windows/Linux Troubleshooting
+          </li>
+          <li>
+            <span class="comp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+            </span>
+            Network Infrastructure Management
+          </li>
+          <li>
+            <span class="comp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+            </span>
+            Enterprise Help Desk Operations
+          </li>
+          <li>
+            <span class="comp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+            </span>
+            System Administration &amp; Automation
+          </li>
+          <li>
+            <span class="comp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+            </span>
+            ITIL Service Management
+          </li>
+          <li>
+            <span class="comp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+            </span>
+            Team Leadership &amp; Mentoring
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Experience (now with skill badges inside each job) -->
     <section id="experience" class="card">
       <h2 class="h2">Experience</h2>
+
       <article class="job">
-        <header><strong>Zenguard</strong> — Tier II Technical Support • Jun 2024–Present • Dallas, TX</header>
-        <ul>
+        <header class="job-head">
+          <div class="job-title">
+            <div><strong>Zenguard</strong> — Tier II Technical Support</div>
+            <div class="meta">Jun 2024 – Present • Dallas, TX</div>
+          </div>
+          <ul class="job-tags" role="list">
+            <li class="tag">PowerShell</li>
+            <li class="tag">Intune</li>
+            <li class="tag">GPO</li>
+            <li class="tag">Datto BCDR</li>
+            <li class="tag">Duplicati</li>
+            <li class="tag">SonicWall</li>
+            <li class="tag">Meraki</li>
+            <li class="tag">FortiGate</li>
+          </ul>
+        </header>
+        <ul class="bullets">
           <li>Built PowerShell and Bash helpers to speed user setup and cleanup tasks.</li>
           <li>Troubleshot Windows sign-in, access, profiles, and policy issues; documented fixes.</li>
           <li>Supported device provisioning and compliance via Intune; tuned GPO and baselines.</li>
@@ -107,9 +172,22 @@
           <li>Handled VPN and firewall escalations across SonicWall, Meraki, Ubiquiti, FortiGate.</li>
         </ul>
       </article>
+
       <article class="job">
-        <header><strong>Barrage Systems LLC</strong> — Desktop Support Technician • Dec 2023–May 2024 • DFW, TX</header>
-        <ul>
+        <header class="job-head">
+          <div class="job-title">
+            <div><strong>Barrage Systems LLC</strong> — Desktop Support Technician</div>
+            <div class="meta">Dec 2023 – May 2024 • DFW, TX</div>
+          </div>
+          <ul class="job-tags" role="list">
+            <li class="tag">Microsoft 365</li>
+            <li class="tag">NinjaOne</li>
+            <li class="tag">PowerShell</li>
+            <li class="tag">Imaging</li>
+            <li class="tag">Documentation</li>
+          </ul>
+        </header>
+        <ul class="bullets">
           <li>Automated laptop setup with PowerShell/BAT to cut migration time.</li>
           <li>Resolved endpoint, security, and performance issues via M365 and NinjaOne.</li>
           <li>Created step-by-step guides for end users and internal teams.</li>
@@ -117,51 +195,104 @@
       </article>
     </section>
 
-    <!-- Education -->
-    <section id="education" class="card">
-      <h2 class="h2">Education & Certifications</h2>
-      <p><strong>Tarrant County College</strong> — A.A.S. Information Technology (2022)</p>
-      <div class="badges">
-        <span class="badge">CompTIA A+</span>
-        <span class="badge">CompTIA Network+</span>
+    <!-- Technical Skills (category cards with badge clouds) -->
+    <section id="skills-cards" class="card">
+      <h2 class="h2 center">Technical Skills</h2>
+
+      <div class="cards-grid">
+        <article class="skill-card">
+          <h3 class="h3">Operating Systems</h3>
+          <ul class="badge-cloud" role="list">
+            <li class="tag">Windows 10/11</li>
+            <li class="tag">Windows Server</li>
+            <li class="tag">macOS</li>
+            <li class="tag">Linux (Ubuntu, CentOS)</li>
+            <li class="tag">iOS</li>
+            <li class="tag">Android</li>
+            <li class="tag">Chrome OS</li>
+          </ul>
+        </article>
+
+        <article class="skill-card">
+          <h3 class="h3">Help Desk &amp; Ticketing</h3>
+          <ul class="badge-cloud" role="list">
+            <li class="tag">ServiceNow</li>
+            <li class="tag">Jira Service Desk</li>
+            <li class="tag">Zendesk</li>
+            <li class="tag">Remedy</li>
+            <li class="tag">Freshservice</li>
+            <li class="tag">ITIL Framework</li>
+            <li class="tag">SLA Management</li>
+          </ul>
+        </article>
+
+        <article class="skill-card">
+          <h3 class="h3">Hardware &amp; Networking</h3>
+          <ul class="badge-cloud" role="list">
+            <li class="tag">PC/Laptop Repair</li>
+            <li class="tag">Printer Support</li>
+            <li class="tag">Network Troubleshooting</li>
+            <li class="tag">TCP/IP</li>
+            <li class="tag">DNS/DHCP</li>
+            <li class="tag">VPN</li>
+            <li class="tag">Wi-Fi</li>
+            <li class="tag">Switches/Routers</li>
+          </ul>
+        </article>
+
+        <article class="skill-card">
+          <h3 class="h3">Software &amp; Applications</h3>
+          <ul class="badge-cloud" role="list">
+            <li class="tag">Microsoft 365</li>
+            <li class="tag">Active Directory</li>
+            <li class="tag">Group Policy</li>
+            <li class="tag">Exchange Online</li>
+            <li class="tag">SharePoint</li>
+            <li class="tag">Teams</li>
+            <li class="tag">Adobe Creative Suite</li>
+            <li class="tag">Antivirus</li>
+          </ul>
+        </article>
+
+        <article class="skill-card">
+          <h3 class="h3">Remote Support &amp; Tools</h3>
+          <ul class="badge-cloud" role="list">
+            <li class="tag">TeamViewer</li>
+            <li class="tag">Remote Desktop</li>
+            <li class="tag">LogMeIn</li>
+            <li class="tag">ConnectWise</li>
+            <li class="tag">PowerShell</li>
+            <li class="tag">Command Line</li>
+            <li class="tag">System Imaging</li>
+            <li class="tag">MDM</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="card">
       <h2 class="h2">Projects</h2>
-      <div class="project">
+      <article class="project">
         <h3 class="h3">Automated Onboarding Scripts</h3>
-        <p>PowerShell scripts to create AD users, assign M365 licenses, and deploy baseline software.</p>
-      </div>
-      <div class="project">
+        <p>PowerShell scripts to create AD users, assign Microsoft 365 licenses, and deploy baseline software to new machines.</p>
+      </article>
+      <article class="project">
         <h3 class="h3">Self-Service Support Portal</h3>
-        <p>Freshservice portal with knowledge base articles and password reset tools to reduce repeat tickets.</p>
-      </div>
+        <p>Deployed a Freshservice portal with knowledge base articles and password reset tools to reduce repetitive tickets.</p>
+      </article>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="card">
       <h2 class="h2">Contact</h2>
-      <div class="contact-grid">
-        <div>
-          <p><strong>Email:</strong> <a id="mailtoBottom" href="#">nate.nn@example.com</a>
-            <button id="copyEmail" class="btn sm ghost" aria-label="Copy email">Copy</button></p>
-          <p><strong>Phone:</strong> 817-555-0100</p>
-          <p><strong>Location:</strong> Dallas, TX</p>
-        </div>
-        <div class="downloads">
-          <a id="jsonDownload2" class="btn" href="#" download="resume.json">Download JSON</a>
-          <a id="vcardDownload2" class="btn" href="#" download="NateN.vcf">Download vCard</a>
-        </div>
-      </div>
+      <p><strong>Email:</strong> <a href="mailto:nate.nn@example.com">nate.nn@example.com</a></p>
+      <p><strong>Location:</strong> Dallas, TX</p>
     </section>
   </main>
 
   <footer class="site-footer container">
-    <small>© <span id="year"></span> Nate N. • Last updated locally • Hosted on Cloudflare Pages</small>
+    <small>© 2025 Nate N. • Last updated locally • Hosted on Cloudflare Pages</small>
   </footer>
-
-  <div id="toast" role="status" aria-live="polite" class="toast" hidden>Email copied</div>
 </body>
 </html>
