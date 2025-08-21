@@ -1,294 +1,230 @@
-/* styles.css — full file with 4-row header, icons on contact row, GitHub/LinkedIn buttons,
-   mobile polish, equal-height two-up, spacing fixes, value card, job tags, skills cards. */
-
-/* ---------- Design tokens ---------- */
+/* ================= Tokens ================= */
 :root{
-  --bg:#f6f8fb;
-  --panel:#ffffff;
-  --elev:#ffffff;
-  --text:#0f172a;
-  --muted:#475569;
-  --accent:#2563eb;
-  --success:#16a34a;
-  --border:#e2e8f0;
+  --bg:#f7f8fb; --panel:#ffffff; --elev:#ffffff;
+  --text:#0f172a; --muted:#475569; --accent:#1f6feb;
+  --accent-contrast:#ffffff; --border:#e5e7eb;
   --radius:14px;
-  --shadow:0 1px 2px rgba(2,6,23,.06), 0 8px 24px rgba(2,6,23,.06);
+  --shadow:0 1px 2px rgba(2,6,23,.06), 0 10px 20px rgba(2,6,23,.06);
+  --brand-github:#0f172a; --brand-linkedin:#0a66c2;
 
-  --brand-linkedin:#0a66c2;
-  --brand-github:#0f172a; /* dark slate */
+  /* restored competencies as unified “pill” palette */
+  --pill-bg: var(--elev);
+  --pill-border: var(--border);
+  --pill-text: var(--text);
+  --pill-hover: color-mix(in srgb, var(--accent) 6%, var(--elev));
+  --pill-shadow: var(--shadow);
+  --comp-check:#16c784;
+
+  /* HomeLab badges */
+  --badge-bg:#eef2ff; --badge-text:#2436a8;
 }
-
-/* Dark mode */
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#0b1020;
-    --panel:#11162b;
-    --elev:#141b33;
-    --text:#e6e9f5;
-    --muted:#a7aecc;
-    --accent:#66e3ff;
-    --success:#7dffc3;
-    --border:#222a47;
-    --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.35);
-
+    --bg:#0c1020; --panel:#11162b; --elev:#141b33;
+    --text:#e6e9f5; --muted:#9aa4c7; --accent:#66e3ff;
+    --accent-contrast:#071520; --border:#1c2442;
+    --shadow:0 1px 0 rgba(255,255,255,.03), 0 10px 20px rgba(0,0,0,.35);
     --brand-github:#0b0f1e;
+
+    --pill-bg: var(--elev);
+    --pill-border: var(--border);
+    --pill-text: var(--text);
+    --pill-hover: color-mix(in srgb, var(--accent) 10%, var(--elev));
+    --comp-check:#2ae39f;
+
+    --badge-bg:#162044; --badge-text:#b8c7ff;
   }
 }
 
-/* ---------- Base ---------- */
+/* ================= Base ================= */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font:16px/1.6 system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif;
+  margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
 }
+.container{max-width:1100px;margin-inline:auto;padding:0 20px}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-.container{max-width:1100px;margin-inline:auto;padding:24px}
 
-/* ---------- HEADER (4 rows) ---------- */
+/* ================= Header ================= */
 .site-header{
-  position:sticky;top:0;z-index:10;
+  position:sticky; top:0; z-index:10;
   background:color-mix(in srgb, var(--panel) 92%, transparent);
   backdrop-filter: blur(6px);
   border-bottom:1px solid var(--border);
 }
-.header-block{
-  display:grid;
-  gap:8px;
-  padding-block:14px;
+.header-inner{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+  padding:14px 0;
 }
-.site-name{
-  margin:0;
-  font-size:clamp(26px, 4.8vw, 34px);
-  line-height:1.15;
-  font-weight:800;
-}
-.site-role{
-  margin:0;
-  color:var(--muted);
-  font-size:clamp(15px, 2.6vw, 18px);
-}
+.site-name{margin:0; font-weight:800; font-size:clamp(22px,4.4vw,32px)}
+.site-role{margin:2px 0 8px; color:var(--muted)}
+.contact-row{display:flex; flex-wrap:wrap; gap:8px 14px}
+.contact-item{display:inline-flex; align-items:center; gap:8px; color:var(--text)}
+.icon{width:18px; height:18px}
 
-/* Row 3: email • phone • location */
-.contact-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px 20px;
-}
-.contact-item{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  color:var(--text);
-}
-.contact-item:hover{ text-decoration:none }
-.contact-item .icon{
-  display:inline-flex;
-  width:18px;height:18px;
-  color:var(--muted);
-}
-.contact-item .icon svg{
-  width:18px;height:18px;
-  stroke:currentColor;fill:none;stroke-width:2;
-}
-.contact-item .icon svg path:first-child[fill]{ fill:none } /* safety */
-
-/* Row 4: GitHub + LinkedIn buttons */
-.header-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
+.header-right{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
 .btn{
-  border:1px solid var(--border);
-  background:var(--elev);
-  color:var(--text);
-  padding:10px 14px;
-  border-radius:12px;
-  cursor:pointer;
-  display:inline-flex;align-items:center;gap:10px;
-  box-shadow:var(--shadow);
-  font-weight:600;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 12px; border-radius:12px; border:1px solid var(--border);
+  background:var(--elev); color:var(--text); box-shadow:var(--shadow);
+  font-weight:700; text-decoration:none; font-size:14px;
 }
-.btn svg{ width:18px;height:18px; fill:currentColor; }
-.btn.brand.github{
-  background:var(--brand-github);
-  color:#fff;
-  border-color:transparent;
-}
-.btn.brand.linkedin{
-  background:var(--brand-linkedin);
-  color:#fff;
-  border-color:transparent;
-}
-.btn.brand:hover{ opacity:.93 }
+.btn.brand.github{background:var(--brand-github); color:#fff; border-color:transparent}
+.btn.brand.linkedin{background:var(--brand-linkedin); color:#fff; border-color:transparent}
+.btn:hover{opacity:.96}
 
-/* ---------- Cards & headings ---------- */
-.card{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:24px;
-  margin:20px 0;
+/* ================= Tabs ================= */
+.tabs{display:flex; justify-content:center; gap:10px; padding:10px 0 14px; border-top:1px solid var(--border)}
+.tab-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 12px; border-radius:12px; border:1px solid var(--border);
+  background:var(--elev); color:var(--text); box-shadow:var(--shadow);
+  font-weight:700; cursor:pointer; font-size:14px;
 }
-.h1{font-size:32px;line-height:40px;margin:0 0 10px}
-.h2{font-size:22px;line-height:30px;margin:0 0 12px}
-.h3{font-size:18px;margin:0 0 6px}
+.tab-btn .icon{width:18px;height:18px}
+.tab-btn[aria-selected="true"]{background:var(--accent); color:var(--accent-contrast); border-color:transparent}
+.tab-btn:focus-visible{outline:2px solid var(--accent)}
+.tabpanel[hidden]{display:none}
+
+/* ================= Content ================= */
+.content-wrap{padding:18px 0}
+
+/* Headings */
+.h2{font-size:clamp(24px,4vw,34px); margin:0 0 10px; font-weight:800}
+.h3{font-size:clamp(18px,3.2vw,22px); margin:0 0 10px; font-weight:800}
+.h4{font-size:16px; margin:0 0 6px; font-weight:700}
 .center{text-align:center}
 
-/* ---------- Two-up (equal height & spacing) ---------- */
-.two-up{
-  display:grid;
-  gap:24px;
-  margin:20px 0 32px;
-}
-.two-up > .card{ margin:0 }
-@media (min-width: 960px){
-  .two-up{ grid-template-columns:1fr 1fr; align-items:stretch }
-  .two-up > .card{ height:100%; display:flex; flex-direction:column }
+/* Card */
+.card{
+  background:var(--panel); border:1px solid var(--border);
+  border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
 }
 
-/* ---------- Metrics ---------- */
-.metrics-grid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap:16px;
+/* Hero summary (Resume) */
+.hero{background:
+  radial-gradient(1200px 300px at 50% -100px, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+  var(--panel);
 }
-@media (max-width: 420px){
-  .metrics-grid{grid-template-columns:1fr}
-}
+.lead{max-width:900px;margin:0 auto;color:var(--muted); font-size:15px}
+
+/* Two-up layout (Resume) */
+.two-up{display:grid; gap:14px; margin-top:14px}
+@media (min-width: 900px){ .two-up{grid-template-columns:1fr 1fr} }
+
+/* Metrics (Resume) */
+.metrics-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
 .metric{
-  background:var(--elev);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:18px 16px;
+  padding:14px; border:1px solid var(--border); border-radius:12px; background:var(--elev);
   text-align:center;
-  display:grid;
-  gap:6px;
-  place-items:center;
 }
-.metric-icon{color:var(--muted);display:inline-flex}
-.metric-value{font-size:28px;font-weight:800;margin:2px 0 0;line-height:1}
-.metric-caption{font-size:14px;color:var(--muted);margin:0}
+.metric-icon{display:inline-flex; align-items:center; justify-content:center; margin-bottom:6px}
+.metric-icon svg{width:26px;height:26px}
+.metric-value{margin:0; font-weight:800; font-size:26px}
+.metric-caption{margin:2px 0 0; color:var(--muted); font-size:13px}
 
-/* ---------- Core Competencies ---------- */
-.competencies{
-  list-style:none;
-  padding:0;margin:0;
-  display:grid;gap:10px;
+/* ===== Core Competencies — pills + crisp SVG check ===== */
+.competency-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px}
+.competency-item{
+  display:flex; align-items:center; gap:12px;
+  background:var(--pill-bg);
+  border:1px solid var(--pill-border);
+  color:var(--pill-text);
+  border-radius:12px;
+  padding:12px 16px;
+  box-shadow:var(--pill-shadow);
+  transition: background .15s ease, transform .15s ease, border-color .15s ease;
 }
-.competencies li{
-  display:grid;
-  grid-template-columns: 24px 1fr;
-  align-items:start;
-  gap:10px;
-  padding:10px 12px;
-  background:var(--elev);
-  border:1px solid var(--border);
-  border-radius:10px;
+.competency-item:hover{
+  background:var(--pill-hover);
+  transform:translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 22%, var(--pill-border));
 }
-.comp-icon{ color:var(--success); margin-top:2px }
-.comp-icon svg{ width:22px;height:22px; stroke:currentColor; stroke-width:2; fill:none }
+.check-icon{
+  width:20px; height:20px; flex:none;
+  color:var(--comp-check);
+}
 
-/* ---------- Value card ---------- */
-.value-card{ margin:32px 0 }
-.value-grid{ display:grid; gap:16px; text-align:center }
-@media (min-width: 900px){
-  .value-grid{ grid-template-columns: repeat(3, 1fr) }
-}
-.value-item{ padding:6px 8px }
-.value-title{ font-size:15px; font-weight:700; margin:0 0 6px }
-.value-text{ margin:0; color:var(--muted) }
+/* Value cards (Resume) */
+.value-card{margin-top:14px}
+.value-grid{display:grid; gap:12px}
+@media (min-width:900px){ .value-grid{grid-template-columns:repeat(3,1fr)} }
+.value-item{text-align:center}
+.value-title{margin:0 0 6px; font-weight:700}
+.value-text{margin:0; color:var(--muted); font-size:15px}
 
-/* ---------- Experience ---------- */
-.job{margin:10px 0 18px}
-.job-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:8px }
+/* Section title */
+.section-title{
+  font-size:clamp(20px,3.6vw,28px); font-weight:800; text-align:center;
+  margin:22px 0 10px;
+}
+
+/* Job cards */
+.job-card{margin:14px 0}
+.job-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:8px}
 .job-title{min-width:240px}
-.meta{color:var(--muted);font-size:14px}
-.bullets{margin:0;padding-left:18px}
+.meta{color:var(--muted); font-size:14px}
+.job-tags{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px}
+.tag{background:var(--elev); border:1px solid var(--border); border-radius:999px; padding:4px 8px; font-size:13px}
+.bullets{margin:0; padding-left:18px}
 .bullets li{margin:4px 0}
 
-/* job-specific tags */
-.job-tags{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px; align-self:flex-start }
-.tag{
-  background:var(--elev);
-  border:1px solid var(--border);
-  border-radius:999px;
-  padding:4px 8px;
-  font-size:13px;
-  color:var(--text);
-  box-shadow:var(--shadow);
+/* ================= HomeLab ================= */
+/* Hero */
+.hl-hero{
+  text-align:center;
+  background:
+    radial-gradient(1400px 420px at 50% -160px, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+    var(--panel);
+  padding:22px 18px;
 }
-@media (max-width: 680px){
-  .job-head{flex-direction:column;gap:8px}
-}
-
-/* ---------- Technical Skills cards ---------- */
-.cards-grid{ display:grid; gap:18px }
-@media (min-width: 900px){
-  .cards-grid{ grid-template-columns: repeat(3, minmax(0,1fr)) }
-}
-.skill-card{
-  background:var(--elev);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px;
-  box-shadow:var(--shadow);
-}
-.badge-cloud{ list-style:none; padding:0; margin:8px 0 0; display:flex; flex-wrap:wrap; gap:8px }
-.badge-cloud .tag{ padding:6px 10px; font-size:14px }
-
-/* ---------- Footer ---------- */
-.site-footer{padding:24px 0;color:var(--muted);text-align:center}
-
-/* ---------- Print ---------- */
-@media print{
-  body{background:#fff;color:#000}
-  .site-header{position:static;background:#fff;border:none}
-  .btn{display:none !important}
-  .card{background:#fff;border-color:#bbb;box-shadow:none;margin:8px 0;padding:12px}
-  a[href^="http"]::after{content:" (" attr(href) ")";font-size:12px;color:#333}
-  @page{margin:12mm}
+.hl-title{display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:8px}
+.hl-title h2{margin:0; font-size:clamp(26px,4.2vw,36px); font-weight:800}
+.hl-server{width:36px;height:36px;color:var(--accent)}
+.hl-sub{max-width:800px;margin:6px auto 12px; color:var(--muted); font-size:16px; line-height:1.65}
+.badges{display:flex; flex-wrap:wrap; justify-content:center; gap:8px}
+.badge{
+  background:var(--badge-bg); color:var(--badge-text);
+  border:1px solid color-mix(in srgb, var(--badge-text) 18%, transparent);
+  padding:6px 10px; border-radius:999px; font-weight:700; font-size:13px;
 }
 
-/* ---------- Mobile polish for header ---------- */
-@media (max-width: 560px){
-  .header-block{ gap:10px; padding-block:12px }
-  .contact-row{ gap:10px 16px }
-  .btn{ padding:10px 12px; border-radius:14px }
-}
+/* Stack grid (two columns) */
+.stack-grid{display:grid; gap:16px; margin-top:14px}
+@media (min-width: 980px){ .stack-grid{grid-template-columns:1fr 1fr} }
 
-/* Section wrapper (plain, no card/border) */
-.section{
-  margin: 26px 0 18px;
-}
+.stack-card{padding:18px}
+.stack-head{margin-bottom:8px}
+.stack-title{display:flex; align-items:center; gap:8px; font-weight:800}
+.stack-icon{width:20px; height:20px}
 
-/* Big, clean section heading outside cards */
-.section-title{
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.25;
-  font-weight: 800;
-  text-align: center;     /* change to left if you prefer */
-  margin: 6px 0 18px;
+/* Bulleted lists with tiny dots */
+.dot-list{margin:0; padding-left:0; list-style:none}
+.dot-list li{
+  display:flex; align-items:flex-start; gap:8px;
+  padding:6px 0; border-bottom:1px dashed color-mix(in srgb, var(--border) 70%, transparent);
 }
-
-/* Individual job cards */
-.job-card{
-  margin: 16px 0;         /* space between job cards */
-  padding: 22px;          /* inherited card padding is fine; tighten slightly */
+.dot-list li::before{
+  content:""; width:6px; height:6px; border-radius:999px;
+  background:var(--accent); margin-top:8px; flex:none;
 }
+.dot-list li:last-child{border-bottom:none}
 
-@media (min-width: 720px){
-  .job-card{ padding: 24px; }
-}
+/* Footer */
+.site-footer{padding:24px 0; color:var(--muted); text-align:center}
 
-/* Optional: subtle divider between header & bullets inside job card */
-.job-card .bullets{
-  margin-top: 8px;
-  border-top: 1px dashed var(--border);
-  padding-top: 10px;
+/* ============ Mobile polish ============ */
+@media (max-width: 640px){
+  .header-inner{flex-direction:column; align-items:flex-start; padding:10px 0}
+  .site-role{margin-bottom:6px}
+  .btn, .tab-btn{padding:8px 10px; font-size:13px; border-radius:10px}
+  .contact-row{gap:6px 12px}
+  .card{padding:14px}
+  .metric{padding:12px}
+  .metric-value{font-size:24px}
+  .lead{font-size:14px}
+  .job-head{flex-direction:column}
+  .hl-sub{font-size:15px}
 }

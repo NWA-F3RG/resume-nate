@@ -1,239 +1,336 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nate N. — Tier II Technical IT Support Specialist (Dallas, TX)</title>
-  <meta name="description" content="Tier II Technical Support with MSP experience. Strong docs, fast triage, AD & M365, VPN, and Unifi networking." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nate N. — Technical IT Support</title>
+  <meta name="description" content="Resume and HomeLab for Nate N., Tier II Technical IT Support Specialist in Dallas, TX." />
   <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- HEADER (4 rows) -->
+  <!-- ================= HEADER ================= -->
   <header class="site-header">
-    <div class="container header-block" role="banner" aria-label="Header">
-      <!-- Row 1: Name -->
-      <h1 class="site-name">Nate N.</h1>
-
-      <!-- Row 2: Job title -->
-      <p class="site-role">Tier II Technical IT Support Specialist</p>
-
-      <!-- Row 3: Email • Phone • Location (with icons to the left) -->
-      <div class="contact-row" aria-label="Contact details">
-        <a class="contact-item" href="mailto:nate.nn@example.com">
-          <span class="icon" aria-hidden="true">
-            <!-- Mail -->
-            <svg viewBox="0 0 24 24"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path><path d="M22 8l-10 6L2 8"></path></svg>
+    <div class="container header-inner">
+      <div class="header-left">
+        <h1 class="site-name">Nate N.</h1>
+        <p class="site-role">Tier II Technical IT Support Specialist</p>
+        <div class="contact-row">
+          <a class="contact-item" href="mailto:nate.nn@example.com" aria-label="Email nate.nn@example.com">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M3 7l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span>nate.nn@example.com</span>
+          </a>
+          <a class="contact-item" href="tel:+15559876543" aria-label="Call (555) 987-6543">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.6 19.6 0 0 1-8.62-3.07 19.4 19.4 0 0 1-6-6A19.6 19.6 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h2a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.12a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>(555) 987-6543</span>
+          </a>
+          <span class="contact-item" aria-label="Dallas, Texas">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Dallas, TX</span>
           </span>
-          <span>nate.nn@example.com</span>
-        </a>
-
-        <a class="contact-item" href="tel:+15559876543">
-          <span class="icon" aria-hidden="true">
-            <!-- Phone -->
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h2a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.58-1.12a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"></path></svg>
-          </span>
-          <span>(555) 987-6543</span>
-        </a>
-
-        <span class="contact-item">
-          <span class="icon" aria-hidden="true">
-            <!-- Location -->
-            <svg viewBox="0 0 24 24"><path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z"></path><circle cx="12" cy="11" r="2.5"></circle></svg>
-          </span>
-          <span>Dallas, TX</span>
-        </span>
+        </div>
       </div>
 
-      <!-- Row 4: GitHub + LinkedIn buttons -->
-      <div class="header-actions">
+      <div class="header-right">
         <a class="btn brand github" href="https://github.com/NWA-F3RG" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.79.42-1.3.77-1.6-2.67-.3-5.47-1.33-5.47-5.9 0-1.3.47-2.36 1.24-3.19-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.22a11.4 11.4 0 0 1 6.01 0c2.29-1.54 3.3-1.22 3.3-1.22.66 1.65.24 2.87.12 3.17.77.83 1.24 1.89 1.24 3.19 0 4.58-2.81 5.6-5.49 5.9.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.58A12 12 0 0 0 12 .5z"></path></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.3 9.38 7.9 10.9.6.1.8-.26.8-.58v-2.1c-3.24.72-3.93-1.44-3.93-1.44-.53-1.23-1.3-1.6-1.3-1.6-1.07-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.48.99.1-.78.41-1.29.76-1.6-2.66-.3-5.46-1.32-5.46-5.9 0-1.3.47-2.35 1.24-3.18-.13-.3-.55-1.53.12-3.18 0 0 1.01-.32 3.3 1.22a11.4 11.4 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.67 1.65.25 2.88.12 3.18.77.83 1.24 1.88 1.24 3.18 0 4.58-2.8 5.6-5.48 5.9.43.37.81 1.09.81 2.21v3.28c0 .32.21.69.82.58A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" fill="currentColor"/>
+          </svg>
           <span>GitHub</span>
         </a>
         <a class="btn brand linkedin" href="https://www.linkedin.com/in/nathannwaeze/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4.9v15.5H.5V8zM9 8h4.7v2.1h.1c.7-1.3 2.3-2.6 4.8-2.6 5.2 0 6.2 3.4 6.2 7.8v8.2h-4.9v-7.3c0-1.7 0-3.9-2.4-3.9-2.4 0-2.7 1.8-2.7 3.8v7.4H9V8z"></path></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4.9v15.5H.5V8zM9 8h4.7v2.1h.1c.7-1.3 2.3-2.6 4.8-2.6 5.2 0 6.2 3.4 6.2 7.8v8.2h-4.9v-7.3c0-1.7 0-3.9-2.4-3.9-2.4 0-2.7 1.8-2.7 3.8v7.4H9V8z" fill="currentColor"/>
+          </svg>
           <span>LinkedIn</span>
         </a>
       </div>
     </div>
+
+    <!-- ===== Tabs (Resume / HomeLab) ===== -->
+    <nav class="tabs" role="tablist" aria-label="Primary sections">
+      <button id="tab-resume" class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-resume" data-tab="resume">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 11l9-8 9 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span>Resume</span>
+      </button>
+      <button id="tab-homelab" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-homelab" data-tab="homelab">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="3" y="14" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="8" cy="6.5" r="1"/><circle cx="8" cy="17.5" r="1"/>
+        </svg>
+        <span>HomeLab</span>
+      </button>
+    </nav>
   </header>
 
-  <!-- MAIN -->
-  <main class="container">
-    <!-- Summary / Hero -->
-    <section id="summary" class="card">
-      <h2 class="h1 center">Professional Summary</h2>
-      <p class="center">
-        Resourceful and hard-working IT Support Engineer with Tier II experience in MSP environments. 
-        Skilled across device management, scripting, backup systems, and network troubleshooting. 
-        Known for owning escalations, producing clear documentation, and supporting both Windows and macOS environments. 
-        Currently seeking Tier 1 or Tier 2 roles with growth toward sysadmin. 
-      </p>
-    </section>
+  <!-- ================= CONTENT ================= -->
+  <main class="container content-wrap">
+    <!-- ===== Resume Panel ===== -->
+    <section id="panel-resume" class="tabpanel" role="tabpanel" aria-labelledby="tab-resume" data-panel="resume">
+      <!-- Professional Summary -->
+      <section class="hero card">
+        <h2 class="h2 center">Professional Summary</h2>
+        <p class="lead center">
+          Resourceful and hard-working IT Support Engineer with Tier II experience in MSP environments. 
+          Skilled across device management, scripting, backup systems, and network troubleshooting. 
+          Known for owning escalations, producing clear documentation, and supporting both Windows and macOS environments. 
+          Currently seeking Tier 1 or Tier 2 roles with growth toward sysadmin. 
+        </p>
+      </section>
 
-    <!-- Two-up: Metrics + Core Competencies -->
-    <div class="two-up">
-      <section id="metrics" class="card" aria-labelledby="metrics-title">
-        <h2 id="metrics-title" class="h2 center">Key Performance Metrics</h2>
-        <div class="metrics-grid">
-          <article class="metric">
-            <span class="metric-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
-                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <!-- Two-up: Metrics + Competencies -->
+      <div class="two-up">
+        <!-- Key Performance Metrics -->
+        <section class="card">
+          <h3 class="h3 center">Key Performance Metrics</h3>
+          <div class="metrics-grid">
+            <article class="metric">
+              <span class="metric-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <p class="metric-value">98%</p>
+              <p class="metric-caption">Customer Satisfaction Rate</p>
+            </article>
+            <article class="metric">
+              <span class="metric-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <p class="metric-value">25%</p>
+              <p class="metric-caption">Faster Ticket Resolution</p>
+            </article>
+            <article class="metric">
+              <span class="metric-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 20c0-4 14-4 14 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <p class="metric-value">500+</p>
+              <p class="metric-caption">Users Supported Monthly</p>
+            </article>
+            <article class="metric">
+              <span class="metric-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 3H8a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V9z" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M14 3v6h6" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 13h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <p class="metric-value">50+</p>
+              <p class="metric-caption">Guides &amp; SOPs Written</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Core Competencies (pills + SVG check icon) -->
+        <section class="card">
+          <h3 class="h3 center">Core Competencies</h3>
+          <ul class="competency-list" role="list">
+            <li class="competency-item">
+              <svg class="check-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-            </span>
-            <p class="metric-value">98%</p>
-            <p class="metric-caption">Customer Satisfaction Rate</p>
+              <span>Active Directory &amp; Group Policy</span>
+            </li>
+            <li class="competency-item">
+              <svg class="check-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Microsoft 365 Administration</span>
+            </li>
+            <li class="competency-item">
+              <svg class="check-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Azure AD / Intune Support</span>
+            </li>
+            <li class="competency-item">
+              <svg class="check-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Windows &amp; macOS Troubleshooting</span>
+            </li>
+            <li class="competency-item">
+              <svg class="check-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Networking Support</span>
+            </li>
+            <li class="competency-item">
+              <svg class="check-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.5 12.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Technical Documentation &amp; Knowledge Sharing</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- What I Bring to Your Team -->
+      <section class="card value-card">
+        <h3 class="h3 center">What I Bring to Your Team</h3>
+        <div class="value-grid">
+          <article class="value-item">
+            <h4 class="value-title">Automation &amp; Efficiency</h4>
+            <p class="value-text">PowerShell/Bash helpers for onboarding, cleanup, and repeatable tasks; reduce manual work and speed up issue resolution.</p>
           </article>
-
-          <article class="metric">
-            <span class="metric-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
-                <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </span>
-            <p class="metric-value">25%</p>
-            <p class="metric-caption">Faster Ticket Resolution</p>
+          <article class="value-item">
+            <h4 class="value-title">Multi-Platform Support</h4>
+            <p class="value-text">Windows and macOS support across AD/Entra ID, Intune, and MDM. Confident tackling mixed environments.</p>
           </article>
-
-          <article class="metric">
-            <span class="metric-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28">
-                <circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"></circle>
-                <path d="M5 20c0-4 14-4 14 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-              </svg>
-            </span>
-            <p class="metric-value">300+</p>
-            <p class="metric-caption">Users Supported Monthly</p>
-          </article>
-
-          <article class="metric">
-            <span class="metric-icon" aria-hidden="true">
-              <!-- Document icon -->
-              <svg viewBox="0 0 24 24" width="28" height="28">
-                <path d="M14 3H8a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                <path d="M14 3v6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                <path d="M9 13h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-              </svg>
-            </span>
-            <p class="metric-value">50+</p>
-            <p class="metric-caption">Guides &amp; SOPs Written</p>
+          <article class="value-item">
+            <h4 class="value-title">Documentation &amp; Mentoring</h4>
+            <p class="value-text">Clear SOPs and guides; coach junior techs; raise team consistency and reduce repeat escalations.</p>
           </article>
         </div>
       </section>
 
-      <section id="skills" class="card" aria-labelledby="skills-title">
-        <h2 id="skills-title" class="h2 center">Core Competencies</h2>
-        <ul class="competencies" role="list">
-          <li><span class="comp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg></span>Active Directory & Group Policy</li>
-          <li><span class="comp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg></span>Microsoft 365 Administration</li>
-          <li><span class="comp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg></span>Azure AD / Intune Support</li>
-          <li><span class="comp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg></span>Windows & macOS Troubleshooting</li>
-          <li><span class="comp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg></span>Networking Support</li>
-          <li><span class="comp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg></span>Technical Documentation & Knowledge Sharing</li>
+      <!-- Professional Experience -->
+      <h3 class="section-title">Professional Experience</h3>
+
+      <article class="job-card card">
+        <header class="job-head">
+          <div class="job-title">
+            <div><strong>Zenguard</strong> — Tier II Technical Support</div>
+            <div class="meta">Jun 2024 – Present • Dallas, TX</div>
+          </div>
+          <ul class="job-tags" role="list">
+            <li class="tag">Windows 10/11</li><li class="tag">Windows Server</li><li class="tag">macOS</li>
+            <li class="tag">Active Directory</li><li class="tag">Group Policy</li><li class="tag">Microsoft 365</li>
+            <li class="tag">Intune</li><li class="tag">Azure</li><li class="tag">SonicWall</li>
+            <li class="tag">Meraki</li><li class="tag">Ubiquiti</li><li class="tag">FortiGate</li><li class="tag">Datto BCDR</li>
+          </ul>
+        </header>
+        <ul class="bullets">
+          <li>Delivered frontline and escalation support for 200+ end users across Windows 10/11, Windows Server, and macOS devices, resolving access, performance, and endpoint issues.</li>
+          <li>Administered accounts and permissions through Active Directory and Group Policy, handling user management, OU moves, and access fixes.</li>
+          <li>Managed user provisioning, license assignments, and mailbox support through the Microsoft 365 Admin Center.</li>
+          <li>Assisted with resolving Intune- and Azure-related issues for device enrollment, compliance status, and user access.</li>
+          <li>Resolved basic networking and VPN issues across SonicWall, Meraki, Ubiquiti, and FortiGate environments; escalated to vendors when required.</li>
+          <li>Supported Datto BCDR backup systems, validating restores and confirming client business continuity.</li>
         </ul>
+      </article>
+
+      <article class="job-card card">
+        <header class="job-head">
+          <div class="job-title">
+            <div><strong>Barrage Systems LLC</strong> — Desktop Support Technician</div>
+            <div class="meta">Dec 2023 – May 2024 • DFW, TX</div>
+          </div>
+          <ul class="job-tags" role="list">
+            <li class="tag">M365</li><li class="tag">Password Resets</li><li class="tag">Printer Support</li><li class="tag">Connectivity</li>
+            <li class="tag">New-Hire Setup</li><li class="tag">Onboarding</li><li class="tag">Ticket Escalation</li><li class="tag">Documentation</li>
+          </ul>
+        </header>
+        <ul class="bullets">
+          <li>Provided first-line support for end users, including password resets, M365 login issues, printer troubleshooting, and basic connectivity problems.</li>
+          <li>Assisted with new-hire laptop setups, device swaps, and user onboarding to ensure smooth transitions.</li>
+          <li>Helped triage and escalate tickets to Tier 2/3 when issues required deeper investigation, keeping SLA targets on track.</li>
+          <li>Documented simple fixes and step-by-step guides for recurring end-user issues, improving response consistency across the team.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ===== HomeLab Panel ===== -->
+    <section id="panel-homelab" class="tabpanel" role="tabpanel" aria-labelledby="tab-homelab" data-panel="homelab" hidden>
+      <!-- HERO: Title + icon + subtitle + badges -->
+      <section class="card hl-hero">
+        <div class="hl-title">
+          <svg class="hl-server" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <rect x="3" y="14" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="8" cy="6.5" r="1"/><circle cx="8" cy="17.5" r="1"/>
+          </svg>
+          <h2>HomeLab Infrastructure</h2>
+        </div>
+
+        <p class="hl-sub">
+          My personal learning environment for experimenting with enterprise technologies,
+          automation, and modern infrastructure practices. This lab serves as both a learning
+          platform and a testing ground for professional development.
+        </p>
+
+        <div class="badges">
+          <span class="badge">Always Learning</span>
+          <span class="badge">Production-Ready</span>
+          <span class="badge">Open Source</span>
+        </div>
       </section>
-    </div>
 
-    <!-- Value Proposition -->
-    <section id="value" class="card value-card" aria-labelledby="value-title">
-      <h2 id="value-title" class="h2 center">What I Bring to Your Team</h2>
-      <div class="value-grid">
-        <article class="value-item"><h3 class="value-title">End-User Support Excellence</h3><p class="value-text">Skilled at resolving day-to-day issues across Windows and macOS, from login and application errors to networking and VPN access, while keeping users productive.</p></article>
-        <article class="value-item"><h3 class="value-title">Systems & Tools Proficiency</h3><p class="value-text">Hands-on experience with Microsoft 365, Active Directory, Azure AD, Intune, and endpoint management platforms to support accounts, devices, and security compliance.</p></article>
-        <article class="value-item"><h3 class="value-title">Documentation & Knowledge Sharing</h3><p class="value-text">Strong focus on creating clear SOPs, troubleshooting guides, and end-user instructions that improve team efficiency and reduce repeat tickets.</p></article>
+      <!-- Infrastructure Overview -->
+      <h3 class="h2 center" style="margin-top:18px;">Infrastructure Overview</h3>
+
+      <div class="stack-grid">
+        <!-- Hardware -->
+        <section class="card stack-card">
+          <header class="stack-head">
+            <div class="stack-title">
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <rect x="3" y="14" width="18" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="7" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="7" y1="17" x2="7" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Hardware Stack</span>
+            </div>
+          </header>
+          <ul class="dot-list">
+            <li>Dell PowerEdge R720 (Primary Server)</li>
+            <li>HP ProLiant DL380 (Secondary Server)</li>
+            <li>Raspberry Pi 4 Cluster (4 nodes)</li>
+            <li>Ubiquiti UniFi Dream Machine</li>
+            <li>24-Port Managed Switch</li>
+            <li>Synology DS920+ NAS (32TB)</li>
+          </ul>
+        </section>
+
+        <!-- Software -->
+        <section class="card stack-card">
+          <header class="stack-head">
+            <div class="stack-title">
+              <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 20h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Software Stack</span>
+            </div>
+          </header>
+          <ul class="dot-list">
+            <li>Proxmox Virtual Environment</li>
+            <li>Docker &amp; Kubernetes</li>
+            <li>pfSense Firewall</li>
+            <li>Grafana &amp; Prometheus Monitoring</li>
+            <li>ELK Stack (Logging)</li>
+            <li>GitLab CE (Self-hosted)</li>
+          </ul>
+        </section>
       </div>
-    </section>
-
-    <!-- Experience (title OUTSIDE of cards) -->
-<section id="experience" class="section">
-  <h2 class="section-title">Professional Experience</h2>
-
-  <!-- Zenguard — card -->
-  <article class="job-card card">
-    <header class="job-head">
-      <div class="job-title">
-        <div><strong>Zenguard</strong> — Tier II Technical Support</div>
-        <div class="meta">Jun 2024 – Present • Dallas, TX</div>
-      </div>
-      <ul class="job-tags" role="list">
-        <li class="tag">Windows 10/11</li>
-        <li class="tag">Windows Server</li>
-        <li class="tag">macOS</li>
-        <li class="tag">Active Directory</li>
-        <li class="tag">Group Policy</li>
-        <li class="tag">Microsoft 365</li>
-        <li class="tag">Intune</li>
-        <li class="tag">Azure</li>
-        <li class="tag">SonicWall</li>
-        <li class="tag">Meraki</li>
-        <li class="tag">Ubiquiti</li>
-        <li class="tag">FortiGate</li>
-        <li class="tag">Datto BCDR</li>
-      </ul>
-    </header>
-    <ul class="bullets">
-      <li>Delivered frontline and escalation support for 200+ end users across Windows 10/11, Windows Server, and macOS devices, resolving access, performance, and endpoint issues.</li>
-      <li>Administered accounts and permissions through Active Directory and Group Policy, handling user management, OU moves, and access fixes.</li>
-      <li>Managed user provisioning, license assignments, and mailbox support through the Microsoft 365 Admin Center.</li>
-      <li>Assisted with resolving Intune- and Azure-related issues for device enrollment, compliance status, and user access.</li>
-      <li>Resolved basic networking and VPN issues across SonicWall, Meraki, Ubiquiti, and FortiGate environments; escalated to vendors when required.</li>
-      <li>Supported Datto BCDR backup systems, validating restores and confirming client business continuity.</li>
-    </ul>
-  </article>
-
-  <!-- Barrage Systems — card -->
-  <article class="job-card card">
-    <header class="job-head">
-      <div class="job-title">
-        <div><strong>Barrage Systems LLC</strong> — Desktop Support Technician</div>
-        <div class="meta">May 2023 – May 2024 • Dallas, TX</div>
-      </div>
-      <ul class="job-tags" role="list">
-        <li class="tag">M365</li>
-        <li class="tag">Password Resets</li>
-        <li class="tag">Printer Support</li>
-        <li class="tag">Connectivity</li>
-        <li class="tag">New-Hire Setup</li>
-        <li class="tag">Onboarding</li>
-        <li class="tag">Ticket Escalation</li>
-        <li class="tag">Documentation</li>
-      </ul>
-    </header>
-    <ul class="bullets">
-      <li>Provided first-line support for end users, including password resets, M365 login issues, printer troubleshooting, and basic connectivity problems.</li>
-      <li>Assisted with new-hire laptop setups, device swaps, and user onboarding to ensure smooth transitions.</li>
-      <li>Helped triage and escalate tickets to Tier 2/3 when issues required deeper investigation, keeping SLA targets on track.</li>
-      <li>Documented simple fixes and step-by-step guides for recurring end-user issues, improving response consistency across the team.</li>
-    </ul>
-  </article>
-</section>
-
-    <!-- Technical Skills (category cards with badge clouds) -->
-    <section id="skills-cards" class="card">
-      <h2 class="h2 center">Technical Skills</h2>
-      <div class="cards-grid">
-        <article class="skill-card"><h3 class="h3">Operating Systems</h3><ul class="badge-cloud" role="list"><li class="tag">Windows 10/11</li><li class="tag">Windows Server</li><li class="tag">macOS</li><li class="tag">Linux (Ubuntu, CentOS)</li><li class="tag">iOS</li><li class="tag">Android</li><li class="tag">Chrome OS</li></ul></article>
-        <article class="skill-card"><h3 class="h3">Help Desk &amp; Ticketing</h3><ul class="badge-cloud" role="list"><li class="tag">ServiceNow</li><li class="tag">Jira Service Desk</li><li class="tag">Zendesk</li><li class="tag">Remedy</li><li class="tag">Freshservice</li><li class="tag">ITIL Framework</li><li class="tag">SLA Management</li></ul></article>
-        <article class="skill-card"><h3 class="h3">Hardware &amp; Networking</h3><ul class="badge-cloud" role="list"><li class="tag">PC/Laptop Repair</li><li class="tag">Printer Support</li><li class="tag">Network Troubleshooting</li><li class="tag">TCP/IP</li><li class="tag">DNS/DHCP</li><li class="tag">VPN</li><li class="tag">Wi-Fi</li><li class="tag">Switches/Routers</li></ul></article>
-        <article class="skill-card"><h3 class="h3">Software &amp; Applications</h3><ul class="badge-cloud" role="list"><li class="tag">Microsoft 365</li><li class="tag">Active Directory</li><li class="tag">Group Policy</li><li class="tag">Exchange Online</li><li class="tag">SharePoint</li><li class="tag">Teams</li><li class="tag">Adobe Creative Suite</li><li class="tag">Antivirus</li></ul></article>
-        <article class="skill-card"><h3 class="h3">Remote Support &amp; Tools</h3><ul class="badge-cloud" role="list"><li class="tag">TeamViewer</li><li class="tag">Remote Desktop</li><li class="tag">LogMeIn</li><li class="tag">ConnectWise</li><li class="tag">PowerShell</li><li class="tag">Command Line</li><li class="tag">System Imaging</li><li class="tag">MDM</li></ul></article>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="card">
-      <h2 class="h2">Contact</h2>
-      <p><strong>Email:</strong> <a href="mailto:nate.nn@example.com">nate.nn@example.com</a></p>
-      <p><strong>Location:</strong> Dallas, TX</p>
     </section>
   </main>
 
   <footer class="site-footer container">
-    <small>© 2025 Nate N. • Last updated locally • Hosted on Cloudflare Pages</small>
+    <small>© 2025 Nate N.</small>
   </footer>
+
+  <noscript>
+    <div class="container" style="margin:16px 0">
+      <em>JavaScript is disabled; both panels are visible. Use section headings to navigate.</em>
+    </div>
+  </noscript>
 </body>
 </html>
