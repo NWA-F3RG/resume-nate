@@ -1,4 +1,4 @@
-/* styles.css */
+/* styles.css — full file with equal-height two-up + no-overlap fix */
 
 /* ---------- Design tokens (light by default) ---------- */
 :root{
@@ -75,7 +75,7 @@ a:hover{text-decoration:underline}
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:24px;
-  margin:20px 0;
+  margin:20px 0;               /* default outer spacing for standalone cards */
 }
 .h1{font-size:32px;line-height:40px;margin:0 0 10px}
 .h2{font-size:22px;line-height:30px;margin:0 0 12px}
@@ -94,20 +94,24 @@ a:hover{text-decoration:underline}
 }
 .chip.link{color:var(--text);text-decoration:none}
 
-/* ---------- Two-up layout ---------- */
+/* ---------- Two-up layout (with no-overlap fix) ---------- */
 .two-up{
   display:grid;
   gap:24px;
+  margin:20px 0 32px;          /* spacing around the pair to avoid touching neighbors */
+}
+.two-up > .card{
+  margin:0;                     /* remove inner margins so grid controls spacing */
 }
 @media (min-width: 960px){
   .two-up{
     grid-template-columns: 1fr 1fr;
-    align-items: stretch;            /* equal height cards */
+    align-items: stretch;       /* equal height cards */
   }
   .two-up > .card{
     height:100%;
     display:flex;
-    flex-direction:column;           /* ensures internal layout fills card height */
+    flex-direction:column;      /* lets content fill card height */
   }
 }
 
