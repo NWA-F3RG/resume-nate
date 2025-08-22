@@ -20,7 +20,7 @@
   activate('resume');
 })();
 
-/* Optional: Smooth scroll if you add anchor links later */
+/* Optional smooth scroll for internal anchors */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     const target = document.querySelector(this.getAttribute("href"));
