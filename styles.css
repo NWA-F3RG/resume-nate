@@ -10,7 +10,6 @@
   --text:#0f172a; --muted:#475569; --accent:#2563eb;
   --accent-contrast:#ffffff; --border:#e5e7eb;
 
-  /* Compact type scale */
   --fs-xs: 0.8125rem;
   --fs-sm: 0.9375rem;
   --fs-md: 1rem;
@@ -224,6 +223,37 @@ a:hover{text-decoration:underline}
 /* Bullets */
 .bullets{margin:0; padding-left:18px}
 .bullets li{margin:3px 0}
+
+/* ================= Technical Skills (added) ================= */
+.skills-grid{
+  display:grid; gap:12px; margin:10px 0 0;
+  grid-template-columns:1fr;
+}
+@media (min-width: 880px){
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width: 1100px){
+  .skills-grid{grid-template-columns:repeat(3,1fr)}
+}
+.skill-card{padding:14px; display:flex; flex-direction:column; gap:10px}
+.skill-title{
+  margin:0; font-weight:800; letter-spacing:.2px;
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:1rem;
+}
+.skill-badges{display:flex; flex-wrap:wrap; gap:6px}
+.pill{
+  background:var(--elev);
+  border:1px solid var(--border);
+  color:var(--text);
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:var(--fs-xs);
+  font-weight:700;
+  box-shadow:var(--shadow-soft);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.pill:hover{transform:translateY(-1px); background:var(--pill-hover); border-color: color-mix(in srgb, var(--accent) 16%, var(--border));}
 
 /* ================= HomeLab ================= */
 .hl-hero{
